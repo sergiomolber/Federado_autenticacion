@@ -1,0 +1,3848 @@
+{
+	"info": {
+		"_postman_id": "de94bb43-bad8-4ad8-b8c2-466c4e26969c",
+		"name": "Codigo (no enviado) Post",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29460625",
+		"_collection_link": "https://red-satellite-829132.postman.co/workspace/Federado-post~65275c7a-6894-4d96-8a09-0fc3a353c835/collection/29460625-de94bb43-bad8-4ad8-b8c2-466c4e26969c?action=share&source=collection_link&creator=29460625"
+	},
+	"item": [
+		{
+			"name": "Validar campo message-uuid al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"// captura la variable code es igual a 1018\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1018\", function () {\r",
+							"  pm.expect(codenum).to.equal(1018); // Verifica si la variable es igual a 400\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\",\r\n    \"spbvi\": \"TFY\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo request-app-id al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"// captura la variable code es igual a 1018\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1018\", function () {\r",
+							"  pm.expect(codenum).to.equal(1018); // Verifica si la variable es igual a 400\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\",\r\n    \"spbvi\": \"TFY\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo customer-request-dt al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"// captura la variable code es igual a 1018\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1018\", function () {\r",
+							"  pm.expect(codenum).to.equal(1018); // Verifica si la variable es igual a 400\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\",\r\n    \"spbvi\": \"TFY\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo entity-request-dt al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"// captura la variable code es igual a 1018\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1018\", function () {\r",
+							"  pm.expect(codenum).to.equal(1018); // Verifica si la variable es igual a 400\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "{{client-id}}"
+					},
+					{
+						"key": "client-secret",
+						"value": "{{client-secret}}"
+					},
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\",\r\n    \"spbvi\": \"TFY\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo transaction-reference al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"// captura la variable code es igual a 1018\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1018\", function () {\r",
+							"  pm.expect(codenum).to.equal(1018); // Verifica si la variable es igual a 400\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\",\r\n    \"spbvi\": \"TFY\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo entityId al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\",\r\n    \"spbvi\": \"TFY\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities//keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo entityId al enviarlo vacio",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\",\r\n    \"spbvi\": \"TFY\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities//keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo entityId al enviarlo null",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\",\r\n    \"spbvi\": \"TFY\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/null/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"null",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo entityId al enviar un valor no existente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\",\r\n    \"spbvi\": \"TFY\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/jngtjinaviatqnuinav/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"jngtjinaviatqnuinav",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo firstName al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PJ\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"{{randomNumber}}\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\",\r\n    \"spbvi\": \"TFY\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo firstName al no enviarlo si el userType es \"PN\"",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"// captura la variable code es igual a 1018\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1018\", function () {\r",
+							"  pm.expect(codenum).to.equal(1018); // Verifica si la variable es igual a 400\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\",\r\n    \"spbvi\": \"TFY\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo secondName al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n   \r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"{{randomNumber}}\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\",\r\n    \"spbvi\": \"TFY\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo firstLastName al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PJ\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"{{randomNumber}}\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\",\r\n    \"spbvi\": \"TFY\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo firstLastName al no enviarlo si el userType es \"PN\"",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"// captura la variable code es igual a 1018\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1018\", function () {\r",
+							"  pm.expect(codenum).to.equal(1018); // Verifica si la variable es igual a 400\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\",\r\n    \"spbvi\": \"TFY\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo secondLastName al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"{{randomNumber}}\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\",\r\n    \"spbvi\": \"TFY\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo documentType al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"// captura la variable code es igual a 1018\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1018\", function () {\r",
+							"  pm.expect(codenum).to.equal(1018); // Verifica si la variable es igual a 400\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n \r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\",\r\n    \"spbvi\": \"TFY\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo documentNumber al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"// captura la variable code es igual a 1018\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1018\", function () {\r",
+							"  pm.expect(codenum).to.equal(1018); // Verifica si la variable es igual a 400\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\",\r\n    \"spbvi\": \"TFY\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo userType al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"// captura la variable code es igual a 1018\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1018\", function () {\r",
+							"  pm.expect(codenum).to.equal(1018); // Verifica si la variable es igual a 400\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\",\r\n    \"spbvi\": \"TFY\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo merchantName al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\"\r\n\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"{{randomNumber}}\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\",\r\n    \"spbvi\": \"TFY\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo merchantName al no enviarlo si el userType es \"PJ\"",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"// captura la variable code es igual a 1018\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1018\", function () {\r",
+							"  pm.expect(codenum).to.equal(1018); // Verifica si la variable es igual a 400\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PJ\"\r\n\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\",\r\n    \"spbvi\": \"TFY\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo accountType al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"// captura la variable code es igual a 1018\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1018\", function () {\r",
+							"  pm.expect(codenum).to.equal(1018); // Verifica si la variable es igual a 400\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\",\r\n    \"spbvi\": \"TFY\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo accountNumber al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"// captura la variable code es igual a 1018\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1018\", function () {\r",
+							"  pm.expect(codenum).to.equal(1018); // Verifica si la variable es igual a 400\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\",\r\n    \"spbvi\": \"TFY\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo entityCode al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"// captura la variable code es igual a 1018\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1018\", function () {\r",
+							"  pm.expect(codenum).to.equal(1018); // Verifica si la variable es igual a 400\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\",\r\n    \"spbvi\": \"TFY\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo Signer al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"// captura la variable code es igual a 1018\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1018\", function () {\r",
+							"  pm.expect(codenum).to.equal(1018); // Verifica si la variable es igual a 400\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\"\r\n\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\",\r\n    \"spbvi\": \"TFY\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo keyType al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"// captura la variable code es igual a 1018\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1018\", function () {\r",
+							"  pm.expect(codenum).to.equal(1018); // Verifica si la variable es igual a 400\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n\r\n    \"keyValue\": \"{{randomNumber}}\",\r\n    \"spbvi\": \"TFY\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo keyValue al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"// captura la variable code es igual a 1018\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1018\", function () {\r",
+							"  pm.expect(codenum).to.equal(1018); // Verifica si la variable es igual a 400\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n\r\n    \"spbvi\": \"TFY\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campo spbvi al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"// captura la variable code es igual a 1018\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1018\", function () {\r",
+							"  pm.expect(codenum).to.equal(1018); // Verifica si la variable es igual a 400\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\"\r\n\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar cambio del formato Json a Txt",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"let responseData = pm.response.json();\r",
+							"pm.test(\"Status code is 415\", function () {\r",
+							"    pm.response.to.have.status(415);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PJ\",\r\n    \"merchantName\": \"d552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"CURRENT_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"{{$randomPassword}}\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}},\r\n    \"spbvi\": \"TFY\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campos de salida presentados en el status 400",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"// captura la variable code es igual a 1018\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1018\", function () {\r",
+							"  pm.expect(codenum).to.equal(1018); // Verifica si la variable es igual a 400\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n \r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\",\r\n    \"spbvi\": \"TFY\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar codigo de error 1033",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 409\", function () {\r",
+							"    pm.response.to.have.status(409);\r",
+							"});\r",
+							"\r",
+							"// captura la variable code es igual a 1018\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1033\", function () {\r",
+							"  pm.expect(codenum).to.equal(1033); // Verifica si la variable es igual a 400\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Giovany\",\r\n    \"secondName\": \"Mauricio\",\r\n    \"firstLastName\": \"cuellar\",\r\n    \"secondLastName\": \"pena\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"9899376583222\",\r\n    \"userType\": \"PJ\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"CURRENT_ACCOUNT\",\r\n    \"accountNumber\": \"15242549\",\r\n    \"entityCode\": \"1031\",\r\n    \"signer\":\"393a86c2-5250-4c99-8a2b-d8aebab86c92\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"EMAIL\",\r\n    \"keyValue\": \"9899376582232\",\r\n    \"spbvi\": \"TFY\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campos de salida presentados en el status 401",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 401\", function () {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_tooken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n \r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\",\r\n    \"spbvi\": \"TFY\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campos de salida presentados en el status 404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PN\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"rewr34332\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\",\r\n    \"spbvi\": \"TFY\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities//keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar campos de salida presentados en el status 500",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"let responseData = pm.response.json();\r",
+							"pm.test(\"Status code is 500\", function () {\r",
+							"    pm.response.to.have.status(500);\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PJ\",\r\n    \"merchantName\": \"d552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"CURRENT_ACCOUNT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"{{$randomPassword}}\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\",\r\n    \"spbvi\": \"TFY\",\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Llave con access token erronoe",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"const randomCel = _.random(100000000,999999999)\r",
+							"pm.variables.set(\"randomCel\", randomCel );\r",
+							"// Array de posibles valores para accountType\r",
+							"const accountTypes = [\r",
+							"    \"SAVING_ACCOUNT\",\r",
+							"    \"CURRENT_ACCOUNT\",\r",
+							"    \"LOW_DEPOSIT\",\r",
+							"    \"ORDINARY_DEPOSIT\",\r",
+							"    \"INCLUSIVE_LOW_AMOUNT\"\r",
+							"];\r",
+							"\r",
+							"// Seleccionar un valor aleatorio del array\r",
+							"const randomAccountType = accountTypes[Math.floor(Math.random() * accountTypes.length)];\r",
+							"\r",
+							"// Establecer la variable en el entorno de Postman\r",
+							"pm.environment.set(\"accountType\", randomAccountType);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_tokdsfdsfen}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "probando",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Validar campo nombre212\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"{{randomNumber}}\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PJ\",\r\n    \"merchantName\": \"d552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"ORDINARY_DEPOSIT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"{{$guid}}\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomCel}}\",\r\n    \"spbvi\": \"TFY\"\r\n    \r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Llave sin enviar acces token",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"const randomCel = _.random(100000000,999999999)\r",
+							"pm.variables.set(\"randomCel\", randomCel );\r",
+							"// Array de posibles valores para accountType\r",
+							"const accountTypes = [\r",
+							"    \"SAVING_ACCOUNT\",\r",
+							"    \"CURRENT_ACCOUNT\",\r",
+							"    \"LOW_DEPOSIT\",\r",
+							"    \"ORDINARY_DEPOSIT\",\r",
+							"    \"INCLUSIVE_LOW_AMOUNT\"\r",
+							"];\r",
+							"\r",
+							"// Seleccionar un valor aleatorio del array\r",
+							"const randomAccountType = accountTypes[Math.floor(Math.random() * accountTypes.length)];\r",
+							"\r",
+							"// Establecer la variable en el entorno de Postman\r",
+							"pm.environment.set(\"accountType\", randomAccountType);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "probando",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Validar campo nombre212\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"{{randomNumber}}\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PJ\",\r\n    \"merchantName\": \"d552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"ORDINARY_DEPOSIT\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"{{$guid}}\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomCel}}\",\r\n    \"spbvi\": \"TFY\"\r\n    \r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

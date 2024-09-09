@@ -1,0 +1,16 @@
+message-uuid,request-app-id,customer-request-dt,entity-request-dt,transaction-reference,comentario
+,acxff62e-6f12-42de-9012-1e7304418abd,2017-01-24T05:00:00,2017-01-24T05:00:00,2017-01-24T05:00:00,message-uuid  Validar campo al enviarlo vacio
+null,acxff62e-6f12-42de-9012-1e7304418abd,2017-01-24T05:00:00,2017-01-24T05:00:00,2017-01-24T05:00:00,message-uuid  Validar campo al enviarlo null
+c4e6bd04-5149-11e7-b114-a2f933d5fe66ghjd,acxff62e-6f12-42de-9012-1e7304418abd,2017-01-24T05:00:00,2017-01-24T05:00:00,2017-01-24T05:00:00,message-uuid  Validar campo al enviarlo incorrecto
+c4e6bd04-5149-11e7-b114-a2f933d5fe66,,2017-01-24T05:00:01,2017-01-24T05:00:01,2017-01-24T05:00:01,request-app-id Validar campo al enviarlo vacio
+c4e6bd04-5149-11e7-b114-a2f933d5fe66,null,2017-01-24T05:00:02,2017-01-24T05:00:02,2017-01-24T05:00:02,request-app-id Validar campo al enviarlo null
+c4e6bd04-5149-11e7-b114-a2f933d5fe66,acxff62e-6f12-42de-9012-1e7304418abdjhsghlfhlsvdbhv,2017-01-24T05:00:03,2017-01-24T05:00:03,2017-01-24T05:00:03,request-app-id Validar campo al enviarlo incorrecto
+c4e6bd04-5149-11e7-b114-a2f933d5fe67,acxff62e-6f12-42de-9012-1e7304418abd,,2017-01-24T05:00:04,2017-01-24T05:00:04,customer-request-dt Validar campo al enviarlo vacio
+c4e6bd04-5149-11e7-b114-a2f933d5fe68,acxff62e-6f12-42de-9012-1e7304418abd,null,2017-01-24T05:00:05,2017-01-24T05:00:05,customer-request-dt Validar campo al enviarlo null
+c4e6bd04-5149-11e7-b114-a2f933d5fe69,acxff62e-6f12-42de-9012-1e7304418abd,9782753898753T,2017-01-24T05:00:06,2017-01-24T05:00:06,customer-request-dt Validar campo al enviarlo incorrecto
+c4e6bd04-5149-11e7-b114-a2f933d5fe70,acxff62e-6f12-42de-9012-1e7304418abd,2017-01-24T05:00:03,,2017-01-24T05:00:07,entity-request-dt Validar campo al enviarlo vacio
+c4e6bd04-5149-11e7-b114-a2f933d5fe71,acxff62e-6f12-42de-9012-1e7304418abd,2017-01-24T05:00:04,null,2017-01-24T05:00:08,entity-request-dt Validar campo al enviarlo null
+c4e6bd04-5149-11e7-b114-a2f933d5fe72,acxff62e-6f12-42de-9012-1e7304418abd,2017-01-24T05:00:05,9782753898753T,2017-01-24T05:00:09,entity-request-dt Validar campo al enviarlo incorrecto
+c4e6bd04-5149-11e7-b114-a2f933d5fe73,acxff62e-6f12-42de-9012-1e7304418abd,2017-01-24T05:00:06,2017-01-24T05:00:06,,transaction-reference Validar campo al enviarlo vacio
+c4e6bd04-5149-11e7-b114-a2f933d5fe74,acxff62e-6f12-42de-9012-1e7304418abd,2017-01-24T05:00:07,2017-01-24T05:00:07,null,transaction-reference Validar campo al enviarlo null
+c4e6bd04-5149-11e7-b114-a2f933d5fe75,acxff62e-6f12-42de-9012-1e7304418abd,2017-01-24T05:00:08,2017-01-24T05:00:08,9782753898753T,transaction-reference Validar campo al enviarlo incorrecto

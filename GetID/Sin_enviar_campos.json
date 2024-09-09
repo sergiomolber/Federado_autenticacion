@@ -1,0 +1,1198 @@
+{
+	"info": {
+		"_postman_id": "fba492c3-71a9-4007-888e-ce943dedfb44",
+		"name": "Codigos 400 GET_ID Sin enviar campos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29460625",
+		"_collection_link": "https://red-satellite-829132.postman.co/workspace/Federado-get~d20cf091-b687-4a58-ae01-fbf9aa413fb5/collection/29460625-fba492c3-71a9-4007-888e-ce943dedfb44?action=share&source=collection_link&creator=29460625"
+	},
+	"item": [
+		{
+			"name": "Consultar LlaveId sin message",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"disabled": true
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}"
+					}
+				],
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys/{{id}}",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar LlaveId sin request-app-id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"disabled": true
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}"
+					}
+				],
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys/{{id}}",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar LlaveId sin customer-request-dt",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"disabled": true
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}"
+					}
+				],
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys/{{id}}",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar LlaveId sin entity-request-dt",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"disabled": true
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}"
+					}
+				],
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys/{{id}}",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar LlaveId sintransaction-reference",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys/{{id}}",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar LlaveId Validar campo entityId al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}"
+					}
+				],
+				"url": {
+					"raw": "{{base-url}}{/ext/transfiya/fd/entities//keys/{{id}}",
+					"host": [
+						"{{base-url}}{"
+					],
+					"path": [
+						"ext",
+						"transfiya",
+						"fd",
+						"entities",
+						"",
+						"keys",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar LlaveId Validar campo entityId al enviarlo vacio",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}"
+					}
+				],
+				"url": {
+					"raw": "{{base-url}}{/ext/transfiya/fd/entities//keys/{{id}}",
+					"host": [
+						"{{base-url}}{"
+					],
+					"path": [
+						"ext",
+						"transfiya",
+						"fd",
+						"entities",
+						"",
+						"keys",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar LlaveId Validar campo entityId al enviarlo null",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"// captura la variable code es igual a 1031\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1031\", function () {\r",
+							"  pm.expect(codenum).to.equal(1031); // Verifica si la variable es igual a 400\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}"
+					}
+				],
+				"url": {
+					"raw": "{{base-url}}/fd/entities/null/keys/{{id}}",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"null",
+						"keys",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar LlaveId Validar campo entityId al enviar un valor no existente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"// captura la variable code es igual a 1031\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1031\", function () {\r",
+							"  pm.expect(codenum).to.equal(1031); // Verifica si la variable es igual a 400\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}"
+					}
+				],
+				"url": {
+					"raw": "{{base-url}}/fd/entities/909994/keys/{{id}}",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"909994",
+						"keys",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar LlaveId Entity bloqueada (probar con un 3)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"// captura la variable code es igual a 1031\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1031\", function () {\r",
+							"  pm.expect(codenum).to.equal(1031); // Verifica si la variable es igual a 400\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}"
+					}
+				],
+				"url": {
+					"raw": "{{base-url}}/fd/entities/6209374b-edf1-4bf1-a4ee-ef85c8765fee/keys/{{id}}",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"6209374b-edf1-4bf1-a4ee-ef85c8765fee",
+						"keys",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar LlaveId Validar campo keyId enviar un valor no existente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 502\", function () {\r",
+							"    pm.response.to.have.status(502);\r",
+							"});\r",
+							"// Verifica si la variable es igual a 1013\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1005\", function () {\r",
+							"  pm.expect(codenum).to.equal(1005); \r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}"
+					}
+				],
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys/4324324234",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys",
+						"4324324234"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar LlaveId Validar campo keyId al no enviarlo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}"
+					}
+				],
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys/",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar LlaveId Validar campo keyId al enviarlo vacio",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}"
+					}
+				],
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys/",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar LlaveId Validar campo keyId al enviarlo null",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 502\", function () {\r",
+							"    pm.response.to.have.status(502);\r",
+							"});\r",
+							"// Verifica si la variable es igual a 1013\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1005\", function () {\r",
+							"  pm.expect(codenum).to.equal(1005); \r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}"
+					}
+				],
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys/null",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys",
+						"null"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar LlaveId Validar campos de salida presentados en el status 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}"
+					}
+				],
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys/{{id}}",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar LlaveId Validar campos de salida presentados en el status 401",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_tferewoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}"
+					}
+				],
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys/{{id}}",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar LlaveId Validar campos de salida presentados en el status 404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}"
+					}
+				],
+				"url": {
+					"raw": "{{base-url}}{/ext/transfiya/fd/entities//keys/{{id}}",
+					"host": [
+						"{{base-url}}{"
+					],
+					"path": [
+						"ext",
+						"transfiya",
+						"fd",
+						"entities",
+						"",
+						"keys",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

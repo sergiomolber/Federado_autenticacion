@@ -1,0 +1,7 @@
+﻿status,accountNumber,signer,spbvi,comentario
+"""""","""{{$randomBankAccount}}""","""{{$randomBankAccount}}""","""TFY""",Validar campo status al enviarlo vacio
+null,"""{{$randomBankAccount}}""","""{{$randomBankAccount}}""","""TFY""",Validar campo status al enviarlo null
+"""ACTIVE""","""{{$randomBankAccount}}""","""{{$randomBankAccount}}""","""TFY""",Validar campos de salida presentados en el status 202
+"""ACTIVE""","""{{$randomBankAccount}}""","""{{$randomBankAccount}}""","""TFY""",Validar que se pueda cambiar el accountNumber
+"""ACTIVE""","""{{$randomBankAccount}}""","""{{$randomBankAccount}}""",null,Validar que se envie null spbvi
+"""ACTIVE""","""{{$randomBankAccount}}""","""{{$randomBankAccount}}""","""""",Validar que se envie vacio spbvi

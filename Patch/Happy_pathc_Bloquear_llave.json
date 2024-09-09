@@ -1,0 +1,333 @@
+{
+	"info": {
+		"_postman_id": "b53937a8-69df-44b8-9903-31fc43f2b1ff",
+		"name": "Happy patch Bloquear llave",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29460625",
+		"_collection_link": "https://red-satellite-829132.postman.co/workspace/Directorio-federado-seguridad~8c4a7815-58f5-41a5-8478-8ea76f343ba3/collection/29460625-b53937a8-69df-44b8-9903-31fc43f2b1ff?action=share&source=collection_link&creator=29460625"
+	},
+	"item": [
+		{
+			"name": "Crear Llave para bloquear",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Array de posibles valores para accountType\r",
+							"const accountTypes = [\r",
+							"    \"SAVING_ACCOUNT\",\r",
+							"    \"CURRENT_ACCOUNT\",\r",
+							"    \"LOW_DEPOSIT\",\r",
+							"    \"ORDINARY_DEPOSIT\",\r",
+							"    \"INCLUSIVE_LOW_AMOUNT\"\r",
+							"];\r",
+							"\r",
+							"// Seleccionar un valor aleatorio del array\r",
+							"const randomAccountType = accountTypes[Math.floor(Math.random() * accountTypes.length)];\r",
+							"\r",
+							"// Establecer la variable en el entorno de Postman\r",
+							"pm.environment.set(\"accountType\", randomAccountType);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"let responseData = pm.response.json();\r",
+							"\r",
+							"// Extrae el valor de \"id\" del objeto \"data\"\r",
+							"let idValue = responseData.data.id;\r",
+							"\r",
+							"\r",
+							"// Guarda el valor de \"id\" en una variable de entorno o de colección\r",
+							"pm.environment.set(\"id\", idValue);\r",
+							"\r",
+							"// Extrae los valores del objeto \"account\"\r",
+							"let accountType = responseData.data.account.accountType;\r",
+							"let accountNumber = responseData.data.account.accountNumber;\r",
+							"let signer = responseData.data.account.signer;\r",
+							"\r",
+							"// Guarda los valores en variables de entorno o de colección\r",
+							"pm.environment.set(\"accountType\", accountType);\r",
+							"pm.environment.set(\"accountNumber\", accountNumber);\r",
+							"pm.environment.set(\"signer\", signer);\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PJ\",\r\n    \"merchantName\": \"d552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"{{accountType}}\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"{{$guid}}\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\",\r\n    \"spbvi\": \"TFY\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Llave bloquear",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 202\", function () {\r",
+							"    pm.response.to.have.status(202);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// Obtén la respuesta como un objeto JSON\r",
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"// Captura el valor de la variable `status`\r",
+							"var status = jsonData.data.status;\r",
+							"\r",
+							"// Valida que el valor de `status` sea \"LOCK\"\r",
+							"pm.test(\"Status es LOCK\", function () {\r",
+							"    pm.expect(status).to.eql(\"LOCK\");\r",
+							"})\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"status\": \"LOCK\",\r\n  \"spbvi\": \"TFY\",\r\n  \"account\": {\r\n    \"accountType\": \"{{accountType}}\",\r\n            \"accountNumber\": \"{{accountNumber}}\",\r\n            \"signer\": \"{{signer}}\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys/{{id}}",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar Llave id bloqueada",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// Obtén la respuesta como un objeto JSON\r",
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"// Captura el valor de la variable `status`\r",
+							"var status = jsonData.data.status;\r",
+							"\r",
+							"// Valida que el valor de `status` sea \"LOCK\"\r",
+							"pm.test(\"Status es LOCK\", function () {\r",
+							"    pm.expect(status).to.eql(\"LOCK\");\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys/{{id}}",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

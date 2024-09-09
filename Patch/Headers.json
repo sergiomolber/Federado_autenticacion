@@ -1,0 +1,94 @@
+{
+	"info": {
+		"_postman_id": "1cf89c07-8fa7-4164-acb6-ea6bfa4da953",
+		"name": "Directorio federado headers patch",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29460625",
+		"_collection_link": "https://red-satellite-829132.postman.co/workspace/Directorio-federado-seguridad~8c4a7815-58f5-41a5-8478-8ea76f343ba3/collection/29460625-1cf89c07-8fa7-4164-acb6-ea6bfa4da953?action=share&source=collection_link&creator=29460625"
+	},
+	"item": [
+		{
+			"name": "Consultar Llave id headers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"status\": \"LOCK\",\r\n  \"spbvi\": \"TFY\",\r\n  \"account\": {\r\n    \"accountType\": \"{{accountType}}\",\r\n            \"accountNumber\": \"{{accountNumber}}\",\r\n            \"signer\": \"{{signer}}\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/2/keys/{{id}}",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"2",
+						"keys",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

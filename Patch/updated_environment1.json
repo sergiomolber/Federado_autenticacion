@@ -1,0 +1,49 @@
+{
+  "_": {
+    "postman_variable_scope": "environment",
+    "postman_exported_at": "2024-06-19T00:47:18.991Z",
+    "postman_exported_using": "Postman/11.2.0"
+  },
+  "id": "bc3063e2-821f-403b-9514-7161fa313a09",
+  "name": "New Environment",
+  "values": [
+    {
+      "type": "any",
+      "value": "",
+      "key": "id"
+    },
+    {
+      "type": "any",
+      "value": "",
+      "key": "randomNumber"
+    },
+    {
+      "type": "any",
+      "value": "",
+      "key": "accountNumber"
+    },
+    {
+      "type": "any",
+      "value": "",
+      "key": "signer"
+    },
+    {
+      "type": "any",
+      "value": "CURRENT_ACCOUNT",
+      "key": "accountType"
+    },
+    {
+      "type": "any",
+      "value": "LOCK",
+      "key": "randomStatus"
+    },
+    {
+      "type": "any",
+      "value": "",
+      "key": "codenum"
+    }
+  ],
+  "_postman_variable_scope": "environment",
+  "_postman_exported_at": "2024-09-06T19:29:59.964Z",
+  "_postman_exported_using": "Newman/6.1.3"
+}

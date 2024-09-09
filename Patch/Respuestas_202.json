@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "b580dbbe-6a10-44f1-93b7-c90d5b4faec4",
+		"name": "Patch codigo 202",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29460625",
+		"_collection_link": "https://red-satellite-829132.postman.co/workspace/Directorio-federado-seguridad~8c4a7815-58f5-41a5-8478-8ea76f343ba3/collection/29460625-b580dbbe-6a10-44f1-93b7-c90d5b4faec4?action=share&source=collection_link&creator=29460625"
+	},
+	"item": [
+		{
+			"name": "Actualizar Llave Codigos 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Status code is 202\", function () {\r",
+							"    pm.response.to.have.status(202);\r",
+							"});\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);\r",
+							"\r",
+							"// Array de posibles valores para accountType\r",
+							"const accountTypes = [\r",
+							"    \"SAVING_ACCOUNT\",\r",
+							"    \"CURRENT_ACCOUNT\",\r",
+							"    \"LOW_DEPOSIT\",\r",
+							"    \"ORDINARY_DEPOSIT\",\r",
+							"    \"INCLUSIVE_LOW_AMOUNT\"\r",
+							"];\r",
+							"\r",
+							"// Seleccionar un valor aleatorio del array\r",
+							"const randomAccountType = accountTypes[Math.floor(Math.random() * accountTypes.length)];\r",
+							"\r",
+							"// Establecer la variable en el entorno de Postman\r",
+							"pm.environment.set(\"accountType\", randomAccountType);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"status\": {{status}},\r\n  \"spbvi\": {{spbvi}},\r\n  \"account\": {\r\n    \"accountType\":\"{{accountType}}\",\r\n            \"accountNumber\": {{accountNumber}},\r\n            \"signer\": {{signer}}\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys/{{id}}",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

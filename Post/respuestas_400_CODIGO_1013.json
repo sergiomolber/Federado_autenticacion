@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "9fb9203d-225d-46f4-b669-402262244dd2",
+		"name": "Directorio Federado CODIGOS 400-1013",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29460625",
+		"_collection_link": "https://red-satellite-829132.postman.co/workspace/Federado-post~65275c7a-6894-4d96-8a09-0fc3a353c835/collection/29460625-9fb9203d-225d-46f4-b669-402262244dd2?action=share&source=collection_link&creator=29460625"
+	},
+	"item": [
+		{
+			"name": "Crear Llave codigo 400-1013",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"// captura la variable code es igual a 1013\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1013\", function () {\r",
+							"  pm.expect(codenum).to.equal(1013); // Verifica si la variable es igual a 400\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": {{firstName}},\r\n    \"secondName\": {{secondName}},\r\n    \"firstLastName\": {{firstLastName}},\r\n    \"secondLastName\": {{secondLastName}},\r\n    \"documentType\": {{documentType}},\r\n    \"documentNumber\": {{documentNumber}},\r\n    \"userType\": {{userType}},\r\n    \"merchantName\": {{merchantName}}\r\n  },\r\n  \"account\": {\r\n    \"accountType\": {{accountType}},\r\n    \"accountNumber\": {{accountNumber}},\r\n    \"entityCode\": {{entityCode}},\r\n    \"signer\":{{signer}}\r\n  },\r\n  \"key\": {\r\n    \"keyType\": {{keyType}},\r\n    \"keyValue\": {{keyValue}},\r\n     \"spbvi\": {{spbvi}}\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

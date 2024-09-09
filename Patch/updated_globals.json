@@ -1,0 +1,64 @@
+{
+  "_": {
+    "postman_variable_scope": "globals",
+    "postman_exported_at": "2024-09-06T21:05:13.899Z",
+    "postman_exported_using": "Postman/11.10.0"
+  },
+  "id": "1b758faa-5ed9-4ebc-88a3-0eb0d97e9e88",
+  "name": "Globals",
+  "values": [
+    {
+      "type": "any",
+      "value": "ff2fc626be69b62f55c346c00305ecb4",
+      "key": "client-id"
+    },
+    {
+      "type": "any",
+      "value": "b4f63694b8250e977713838ad1b46f32",
+      "key": "client-secret"
+    },
+    {
+      "type": "any",
+      "value": "c4e6bd04-5149-11e7-b114-a2f933d5fe66",
+      "key": "message-uuid"
+    },
+    {
+      "type": "any",
+      "value": "acxff62e-6f12-42de-9012-1e7304418abd",
+      "key": "request-app-id"
+    },
+    {
+      "type": "any",
+      "value": "2024-08-05T10:24:53.600Z",
+      "key": "customer-request-dt"
+    },
+    {
+      "type": "any",
+      "value": "2024-08-05T10:24:53.600Z",
+      "key": "entity-request-dt"
+    },
+    {
+      "type": "any",
+      "value": "2024-08-05T10:24:53.600Z",
+      "key": "transaction-reference"
+    },
+    {
+      "type": "any",
+      "value": "https://directoriofederado.crt.transfiya.com.co/ach/tx",
+      "key": "base-url"
+    },
+    {
+      "type": "any",
+      "value": "dd2896e7-b0d2-4560-a3ec-99d18536b551",
+      "key": "entidad"
+    },
+    {
+      "type": "any",
+      "value": "AAIgZmYyZmM2MjZiZTY5YjYyZjU1YzM0NmMwMDMwNWVjYjREkeMWp2H6FMwZ_MZmUzFwGuo_M39-tpFqi3Jl-MC6sAPPA8bXx5psTzIM_urrHQQ-VgHYPa1RKM3PRvfY-aF_LpHBrQlUPqy0eJ0Mxj_M_LIEv-vSxscIOhNw0ud-h4pxEcBpLNEmOsxTRySOThNp",
+      "key": "access_token"
+    }
+  ],
+  "_postman_variable_scope": "globals",
+  "_postman_exported_at": "2024-09-06T21:24:19.669Z",
+  "_postman_exported_using": "Newman/6.1.3"
+}

@@ -1,0 +1,59 @@
+{
+  "_": {
+    "postman_variable_scope": "environment",
+    "postman_exported_at": "2024-09-06T20:27:20.892Z",
+    "postman_exported_using": "Postman/11.10.0"
+  },
+  "id": "1869eee0-7c24-48d1-8450-ed8b7734f31e",
+  "name": "New Environment",
+  "values": [
+    {
+      "type": "any",
+      "value": "fe62b55c-9e6f-43c4-a5fc-58e0c5cab4fb",
+      "key": "id"
+    },
+    {
+      "type": "any",
+      "value": "",
+      "key": "randomNumber"
+    },
+    {
+      "type": "any",
+      "value": "20966176",
+      "key": "accountNumber"
+    },
+    {
+      "type": "any",
+      "value": "ae0e53b7-6946-4c7c-8af7-b8f24fba4e83",
+      "key": "signer"
+    },
+    {
+      "type": "any",
+      "value": "CURRENT_ACCOUNT",
+      "key": "accountType"
+    },
+    {
+      "type": "any",
+      "value": "ACTIVE",
+      "key": "randomStatus"
+    },
+    {
+      "type": "any",
+      "value": "",
+      "key": "codenum"
+    },
+    {
+      "type": "any",
+      "value": "",
+      "key": "randomAccountType"
+    },
+    {
+      "type": "any",
+      "value": "",
+      "key": "randomvaluekey"
+    }
+  ],
+  "_postman_variable_scope": "environment",
+  "_postman_exported_at": "2024-09-06T21:24:41.697Z",
+  "_postman_exported_using": "Newman/6.1.3"
+}

@@ -1,0 +1,122 @@
+{
+	"info": {
+		"_postman_id": "99e2cb5e-7cf4-4115-bb1a-1d7012189bc0",
+		"name": "Directorio federado headers POST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29460625",
+		"_collection_link": "https://red-satellite-829132.postman.co/workspace/Federado-post~65275c7a-6894-4d96-8a09-0fc3a353c835/collection/29460625-99e2cb5e-7cf4-4115-bb1a-1d7012189bc0?action=share&source=collection_link&creator=29460625"
+	},
+	"item": [
+		{
+			"name": "Crear llave headers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"\r",
+							"const randomCel = _.random(100000000,999999999)\r",
+							"pm.variables.set(\"randomCel\", randomCel );\r",
+							"// Array de posibles valores para accountType\r",
+							"// Array de posibles valores para accountType\r",
+							"const accountTypes = [\r",
+							"    \"SAVING_ACCOUNT\",\r",
+							"    \"CURRENT_ACCOUNT\",\r",
+							"    \"LOW_DEPOSIT\",\r",
+							"    \"ORDINARY_DEPOSIT\",\r",
+							"    \"INCLUSIVE_LOW_AMOUNT\"\r",
+							"];\r",
+							"\r",
+							"// Seleccionar un valor aleatorio del array\r",
+							"const randomAccountType = accountTypes[Math.floor(Math.random() * accountTypes.length)];\r",
+							"\r",
+							"// Establecer la variable en el entorno de Postman\r",
+							"pm.environment.set(\"accountType\", randomAccountType);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PJ\",\r\n    \"merchantName\": \"d552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"{{accountType}}\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"{{$randomBankAccountIban}}\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\",\r\n    \"spbvi\": \"TFY\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
