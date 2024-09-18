@@ -1,14 +1,14 @@
 {
 	"info": {
-		"_postman_id": "ea73690c-7ef5-4a4a-96fd-08c0d54bdae7",
+		"_postman_id": "6e3138a9-c8a0-4269-ae72-053c8d66f57b",
 		"name": "Consumos Certificado correcto",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "29460625",
-		"_collection_link": "https://red-satellite-829132.postman.co/workspace/autenticacion-fe~5174e703-3298-4e6c-9d20-12feb904233b/collection/29460625-ea73690c-7ef5-4a4a-96fd-08c0d54bdae7?action=share&source=collection_link&creator=29460625"
+		"_collection_link": "https://red-satellite-829132.postman.co/workspace/autenticacion-fe~5174e703-3298-4e6c-9d20-12feb904233b/collection/29460625-6e3138a9-c8a0-4269-ae72-053c8d66f57b?action=share&source=collection_link&creator=29460625"
 	},
 	"item": [
 		{
-			"name": "Generar token TLS 1.3",
+			"name": "Generar token certicado correcto",
 			"event": [
 				{
 					"listen": "test",

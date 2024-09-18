@@ -8,7 +8,7 @@
 	},
 	"item": [
 		{
-			"name": "Generar token TLS 1.3",
+			"name": "Generar token con certicado incorrecto",
 			"event": [
 				{
 					"listen": "test",
