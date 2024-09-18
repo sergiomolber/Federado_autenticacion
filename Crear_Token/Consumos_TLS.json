@@ -1,9 +1,10 @@
 {
 	"info": {
-		"_postman_id": "7a13c56f-becb-4c8a-b8a1-156981817e13",
+		"_postman_id": "2721c729-a83d-4173-af8c-bba0f6c536f9",
 		"name": "Consumos TLS",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "34404218"
+		"_exporter_id": "29460625",
+		"_collection_link": "https://red-satellite-829132.postman.co/workspace/autenticacion-fe~5174e703-3298-4e6c-9d20-12feb904233b/collection/29460625-2721c729-a83d-4173-af8c-bba0f6c536f9?action=share&source=collection_link&creator=29460625"
 	},
 	"item": [
 		{
@@ -151,6 +152,15 @@
 					"listen": "test",
 					"script": {
 						"exec": [
+							"pm.test(\"Validar versión de protocolo TLS incorrecta\", function () {\r",
+							"    // Si hubo un error en la solicitud, validar el mensaje de error\r",
+							"    if (pm.response === undefined || pm.response.error) {\r",
+							"        pm.expect(pm.response.error).to.include('1005184:error:1000042e:SSL routines:OPENSSL_internal:TLSV1_ALERT_PROTOCOL_VERSION');\r",
+							"    } else {\r",
+							"        // Si la solicitud tuvo éxito, fallar el test, ya que se esperaba un error\r",
+							"        pm.expect.fail(\"Se esperaba un error de protocolo TLS y no ocurrió.\");\r",
+							"    }\r",
+							"});\r",
 							""
 						],
 						"type": "text/javascript",

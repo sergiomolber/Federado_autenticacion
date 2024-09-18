@@ -14,7 +14,15 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							""
+							"pm.test(\"Validar certificado incorrecto\", function () {\r",
+							"    // Si hubo un error en la solicitud, validar el mensaje de error\r",
+							"    if (pm.response === undefined || pm.response.error) {\r",
+							"        pm.expect(pm.response.error).to.include('error:0900006e:PEM routines:OPENSSL_internal:NO_START_LINE');\r",
+							"    } else {\r",
+							"        // Si la solicitud tuvo éxito, fallar el test, ya que se esperaba un error\r",
+							"        pm.expect.fail(\"Se esperaba un error de certificado y no ocurrió.\");\r",
+							"    }\r",
+							"});"
 						],
 						"type": "text/javascript",
 						"packages": {}
