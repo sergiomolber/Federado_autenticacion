@@ -1,9 +1,10 @@
 {
 	"info": {
-		"_postman_id": "b4db3725-b323-4f59-ba08-98a787816a64",
+		"_postman_id": "ea73690c-7ef5-4a4a-96fd-08c0d54bdae7",
 		"name": "Consumos Certificado correcto",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "34404218"
+		"_exporter_id": "29460625",
+		"_collection_link": "https://red-satellite-829132.postman.co/workspace/autenticacion-fe~5174e703-3298-4e6c-9d20-12feb904233b/collection/29460625-ea73690c-7ef5-4a4a-96fd-08c0d54bdae7?action=share&source=collection_link&creator=29460625"
 	},
 	"item": [
 		{
