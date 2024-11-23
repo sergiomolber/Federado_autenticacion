@@ -2,7 +2,7 @@ status,accountType,accountNumber,signer,spbvi,comentario
 """dfsdfd""","""ORDINARY_DEPOSIT""","""53612622""","""0SGL3o8pzxq_Lqa""","""TFY""",Validar campo status al enviar un valor no permitido en el array
 """ACTIVE""","""Para pruebas""","""53612622""","""0SGL3o8pzxq_Lqa""","""TFY""",Validar campo accountType al enviar un valor no permitido en el array
 """ACTIVE""","""ORDINARY_DEPOSIT""","""23456789098765434567898765432456434234323""","""0SGL3o8pzxq_Lqa""","""TFY""",Validar campo accountNumber al superar su longitud maxima
-"""ACTIVE""","""ORDINARY_DEPOSIT""","""53612622""","""2345678909876543456789876543245643429""","""TFY""",Validar campo Signeral superar su longitud maxima
+"""ACTIVE""","""ORDINARY_DEPOSIT""","""53612622""","""2345678909876543456789876543245643429""","""TFY""",Validar campo Signer al superar su longitud maxima
 """dfsdfd""","""ORDINARY_DEPOSIT""","""53612622""","""0SGL3o8pzxq_Lqa""","""TFY""",Validar campos de salida presentados en el status 400
 """ACTIVE""","""ORDINARY_DEPOSIT""","""53612622""","""0SGL3o8pzxq_Lqa""","""TFY3""",Validar campo spbvi al enviar un valor no permitido
 """ACTIVE""","""ORDINARY_DEPOSIT""","""53612622""","""0SGL3o8pzxq_Lqa""","""T3""",Validar campo spbvi al enviar con menos de 3 caracteres

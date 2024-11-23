@@ -5,4 +5,4 @@
 """ACTIVE""","""ORDINARY_DEPOSIT""",null,"""0SGL3o8pzxq_Lqa""","""TFY""",Validar campo accountNumber al enviarlo null
 """ACTIVE""","""ORDINARY_DEPOSIT""","""53612622""","""""","""TFY""",Validar campo Signeral enviarlo vacio
 """ACTIVE""","""ORDINARY_DEPOSIT""","""53612622""",null,"""TFY""",Validar campo Signeral enviarlo null
-"""ACTIVE""","""ORDINARY_DEPOSIT""","""53612622""","""""","""TFY""",Validar campo Signeral no superar su longitud minima
+"""ACTIVE""","""ORDINARY_DEPOSIT""","""53612622""","""""","""TFY""",Validar campo Signer al no superar su longitud minima
