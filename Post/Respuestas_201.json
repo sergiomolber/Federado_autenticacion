@@ -18,7 +18,7 @@
 							"pm.variables.set(\"randomNumber\", randomNumber );\r",
 							"const randomTDI = _.random(100000000098999877,999999999990000999)\r",
 							"pm.variables.set(\"randomNumber\", randomNumber );\r",
-							"const randomCel = _.random(3102040000,399204707)\r",
+							"const randomCel = _.random(3102040000,3992047071)\r",
 							"pm.variables.set(\"randomCel\", randomCel );\r",
 							"// Genera un valor aleatorio\r",
 							"let randomValue = Math.random();\r",
