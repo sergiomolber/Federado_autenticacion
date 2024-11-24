@@ -9,6 +9,6 @@ null,"""{{$randomBankAccount}}""","""{{$randomBankAccount}}""","""TFY""","""ID""
 """ACTIVE""","""{{$randomBankAccount}}""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{randomNumber}}""",Verificación de la modificación del medio de pago asociado a la llave
 """ACTIVE""","""{{$randomBankAccount}}""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{randomNumber}}""",Verificación de la modificación de la llave y el medio de pago al mismo tiempo (tipo de llave no repetida)
 """ACTIVE""","""{{$randomBankAccount}}""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{randomCel}}""",Actualizar llave con tipo de llave Número de celular Nacional iniciando con el numero 3
-"""ACTIVE""","""{{$randomBankAccount}}""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{randomEmail}}""",Actualizar llave con tipo de llave correo electrónico iniciando correctamente
-"""ACTIVE""","""{{$randomBankAccount}}""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{randomVariable1}}""",Actualizar llave con tipo de llave identificador alfanumerico correctamente iniciando con el @ 
-"""ACTIVE""","""{{$randomBankAccount}}""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{randomVariable2}}""",Actualizar llave con tipo de llave Código asignado al establecimiento de comercio correctamente
+"""ACTIVE""","""{{$randomBankAccount}}""","""{{$randomBankAccount}}""","""TFY""","""EMAIL""","""{{randomEmail}}""",Actualizar llave con tipo de llave correo electrónico iniciando correctamente
+"""ACTIVE""","""{{$randomBankAccount}}""","""{{$randomBankAccount}}""","""TFY""","""ALFANUMERIC""","""{{randomVariable1}}""",Actualizar llave con tipo de llave identificador alfanumerico correctamente iniciando con el @ 
+"""ACTIVE""","""{{$randomBankAccount}}""","""{{$randomBankAccount}}""","""TFY""","""MERCHANTID""","""{{randomVariable2}}""",Actualizar llave con tipo de llave Código asignado al establecimiento de comercio correctamente
