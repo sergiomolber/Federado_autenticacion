@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "8db92ae4-8b64-446a-af88-d675c344d1c2",
+		"_postman_id": "d0b4d661-c74e-4cbe-8cee-a68bae7fb8af",
 		"name": "Happy patch Bloquear llave con access erroneo",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "29460625",
-		"_collection_link": "https://red-satellite-829132.postman.co/workspace/Directorio-federado-seguridad~8c4a7815-58f5-41a5-8478-8ea76f343ba3/collection/29460625-8db92ae4-8b64-446a-af88-d675c344d1c2?action=share&source=collection_link&creator=29460625"
+		"_exporter_id": "31315694",
+		"_collection_link": "https://warped-rocket-761289.postman.co/workspace/DIRECTORIO-FEDERADO-MARCAS-DE-T~4750160b-239b-41c4-ba50-3aa6b2288dc6/collection/31315694-d0b4d661-c74e-4cbe-8cee-a68bae7fb8af?action=share&source=collection_link&creator=31315694"
 	},
 	"item": [
 		{
@@ -212,7 +212,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"status\": \"LOCK\",\r\n  \"spbvi\": \"TFY\",\r\n  \"account\": {\r\n    \"accountType\": \"{{accountType}}\",\r\n            \"accountNumber\": \"{{accountNumber}}\",\r\n            \"signer\": \"{{signer}}\"\r\n  }\r\n}",
+					"raw": "{\r\n  \"key\":{\r\n  \"status\": \"LOCK\",\r\n  \"spbvi\": \"TFY\",\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"{{accountType}}\",\r\n            \"accountNumber\": \"{{accountNumber}}\",\r\n            \"signer\": \"{{signer}}\"\r\n  }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

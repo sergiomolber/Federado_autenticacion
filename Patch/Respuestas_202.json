@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "b580dbbe-6a10-44f1-93b7-c90d5b4faec4",
+		"_postman_id": "007194d0-ea8a-42ba-9a63-09d0188b09ba",
 		"name": "Patch codigo 202",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "29460625",
-		"_collection_link": "https://red-satellite-829132.postman.co/workspace/Directorio-federado-seguridad~8c4a7815-58f5-41a5-8478-8ea76f343ba3/collection/29460625-b580dbbe-6a10-44f1-93b7-c90d5b4faec4?action=share&source=collection_link&creator=29460625"
+		"_exporter_id": "31315694",
+		"_collection_link": "https://warped-rocket-761289.postman.co/workspace/DIRECTORIO-FEDERADO-MARCAS-DE-T~4750160b-239b-41c4-ba50-3aa6b2288dc6/collection/31315694-007194d0-ea8a-42ba-9a63-09d0188b09ba?action=share&source=collection_link&creator=31315694"
 	},
 	"item": [
 		{
@@ -51,7 +51,48 @@
 							"const randomAccountType = accountTypes[Math.floor(Math.random() * accountTypes.length)];\r",
 							"\r",
 							"// Establecer la variable en el entorno de Postman\r",
-							"pm.environment.set(\"accountType\", randomAccountType);"
+							"\r",
+							"//Para tomar cel aleatorio\r",
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"const randomCel = _.random(3102040000,3992047071)\r",
+							"pm.variables.set(\"randomCel\", randomCel );\r",
+							"// Configurar el dominio del correo\r",
+							"const domain = 'example.com'; // Cambia este dominio si necesitas otro\r",
+							"const randomLocalPart = generateRandomString(8); // Parte local del correo (antes del @)\r",
+							" \r",
+							"// Generar el correo completo\r",
+							"const randomEmail = `${randomLocalPart}@${domain}`;\r",
+							" // Guardar el correo en variables de entorno o colección\r",
+							"pm.environment.set('randomEmail', randomEmail);\r",
+							"pm.environment.set(\"accountType\", randomAccountType);\r",
+							"// Generar una cadena aleatoria de 5 caracteres\r",
+							"function generateRandomString(length) {\r",
+							"    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';\r",
+							"    let result = '';\r",
+							"    for (let i = 0; i < length; i++) {\r",
+							"        result += characters.charAt(Math.floor(Math.random() * characters.length));\r",
+							"    }\r",
+							"    return result;\r",
+							"}\r",
+							" \r",
+							"// Crear la variable\r",
+							"const randomVariable1 = `@${generateRandomString(5)}`;\r",
+							"pm.environment.set('randomVariable1', randomVariable1);\r",
+							"\r",
+							"// Generar una cadena de 8 dígitos aleatorios\r",
+							"function generateRandomDigits(length) {\r",
+							"    let result = '';\r",
+							"    for (let i = 0; i < length; i++) {\r",
+							"        result += Math.floor(Math.random() * 10); // Generar un dígito aleatorio entre 0 y 9\r",
+							"    }\r",
+							"    return result;\r",
+							"}\r",
+							" \r",
+							"// Crear la variable con prefijo '00'\r",
+							"const randomVariable2 = `00${generateRandomDigits(8)}`;\r",
+							"pm.environment.set('randomVariable2', randomVariable2);\r",
+							""
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -99,7 +140,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"status\": {{status}},\r\n  \"spbvi\": {{spbvi}},\r\n  \"account\": {\r\n    \"accountType\":\"{{accountType}}\",\r\n            \"accountNumber\": {{accountNumber}},\r\n            \"signer\": {{signer}}\r\n  }\r\n}",
+					"raw": "{\r\n  \"key\":{\r\n  \"keyType\": {{keyType}},\r\n  \"keyValue\": {{keyValue}},\r\n  \"status\": {{status}},\r\n  \"spbvi\": {{spbvi}}\r\n  },\r\n  \"account\": {\r\n    \"accountType\":\"{{accountType}}\",\r\n            \"accountNumber\": {{accountNumber}},\r\n            \"signer\": {{signer}}\r\n  }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

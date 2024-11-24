@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "256db4ec-854e-407a-9d5d-18dd7dc8bb88",
+		"_postman_id": "f497b1bd-907b-43db-948f-4b0d9d38bdbb",
 		"name": "Patch codigo 400-1013",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "31315694",
-		"_collection_link": "https://warped-rocket-761289.postman.co/workspace/DIRECTORIO-FEDERADO-MARCAS-DE-T~4750160b-239b-41c4-ba50-3aa6b2288dc6/collection/31315694-256db4ec-854e-407a-9d5d-18dd7dc8bb88?action=share&source=collection_link&creator=31315694"
+		"_exporter_id": "29460625",
+		"_collection_link": "https://red-satellite-829132.postman.co/workspace/Directorio-federado-seguridad~8c4a7815-58f5-41a5-8478-8ea76f343ba3/collection/29460625-f497b1bd-907b-43db-948f-4b0d9d38bdbb?action=share&source=collection_link&creator=29460625"
 	},
 	"item": [
 		{
@@ -87,7 +87,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"key\":{\r\n  \"keyType\": {{keyType}},\r\n  \"keyValue\": {{keyValue}},\r\n  \"status\": {{status}},\r\n  \"spbvi\": {{spbvi}}\r\n  },\r\n  \"account\": {\r\n    \"accountType\":\"{{accountType}}\",\r\n            \"accountNumber\": {{accountNumber}},\r\n            \"signer\": {{signer}}\r\n  }\r\n}",
+					"raw": "{\r\n  \"status\": {{status}},\r\n  \"spbvi\": {{spbvi}},\r\n  \"account\": {\r\n    \"accountType\": {{accountType}},\r\n            \"accountNumber\":{{accountNumber}},\r\n            \"signer\": {{signer}}\r\n  }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

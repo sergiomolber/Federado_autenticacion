@@ -1,14 +1,14 @@
 {
 	"info": {
-		"_postman_id": "4cb84b1c-1602-4789-b3ac-9682abbbf381",
-		"name": "Happy patch Bloquear llave",
+		"_postman_id": "7fed45c5-4acd-44fa-8853-a0fd207e0931",
+		"name": "Happy patch INACTIVITY",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "31315694",
-		"_collection_link": "https://warped-rocket-761289.postman.co/workspace/DIRECTORIO-FEDERADO-MARCAS-DE-T~4750160b-239b-41c4-ba50-3aa6b2288dc6/collection/31315694-4cb84b1c-1602-4789-b3ac-9682abbbf381?action=share&source=collection_link&creator=31315694"
+		"_collection_link": "https://warped-rocket-761289.postman.co/workspace/DIRECTORIO-FEDERADO-MARCAS-DE-T~4750160b-239b-41c4-ba50-3aa6b2288dc6/collection/31315694-7fed45c5-4acd-44fa-8853-a0fd207e0931?action=share&source=collection_link&creator=31315694"
 	},
 	"item": [
 		{
-			"name": "Crear Llave para bloquear",
+			"name": "Crear Llave para cancelar",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -17,6 +17,8 @@
 							"const randomNumber = _.random(10000000,99999999)\r",
 							"pm.variables.set(\"randomNumber\", randomNumber );\r",
 							"\r",
+							"const randomCel = _.random(100000000,999999999)\r",
+							"pm.variables.set(\"randomCel\", randomCel );\r",
 							"// Array de posibles valores para accountType\r",
 							"const accountTypes = [\r",
 							"    \"SAVING_ACCOUNT\",\r",
@@ -113,7 +115,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Jhony 332\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"Agudelo 3\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PJ\",\r\n    \"merchantName\": \"d552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"{{accountType}}\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"{{$guid}}\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomNumber}}\",\r\n    \"spbvi\": \"TFY\"\r\n  }\r\n}",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Validar campo nombre212\",\r\n    \"secondName\": \"Estevan 3\",\r\n    \"firstLastName\": \"{{randomNumber}}\",\r\n    \"secondLastName\": \"Villada 3\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"{{randomNumber}}\",\r\n    \"userType\": \"PJ\",\r\n    \"merchantName\": \"d552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"{{accountType}}\",\r\n    \"accountNumber\": \"{{randomNumber}}\",\r\n    \"entityCode\": \"1020\",\r\n    \"signer\":\"{{$guid}}\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"{{randomCel}}\",\r\n    \"spbvi\": \"TFY\"\r\n    \r\n  }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -136,7 +138,7 @@
 			"response": []
 		},
 		{
-			"name": "Actualizar Llave bloquear",
+			"name": "Actualizar Llave cancelar",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -171,8 +173,8 @@
 							"var status = jsonData.data.status;\r",
 							"\r",
 							"// Valida que el valor de `status` sea \"LOCK\"\r",
-							"pm.test(\"Status es LOCK\", function () {\r",
-							"    pm.expect(status).to.eql(\"LOCK\");\r",
+							"pm.test(\"Status es CANCEL\", function () {\r",
+							"    pm.expect(status).to.eql(\"CANCEL\");\r",
 							"})\r",
 							"\r",
 							""
@@ -223,7 +225,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"key\":{\r\n  \"status\": \"LOCK\",\r\n  \"spbvi\": \"TFY\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"{{accountType}}\",\r\n            \"accountNumber\": \"{{accountNumber}}\",\r\n            \"signer\": \"{{signer}}\"\r\n  }\r\n}",
+					"raw": "{\r\n  \"key\":{\r\n  \"status\": \"CANCEL\",\r\n  \"cancellationReason\": \"INACTIVITY \",\r\n   \"spbvi\": \"TFY\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"{{accountType}}\",\r\n            \"accountNumber\": \"{{accountNumber}}\",\r\n            \"signer\": \"{{signer}}\"\r\n  }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -247,27 +249,18 @@
 			"response": []
 		},
 		{
-			"name": "Consultar Llave id bloqueada",
+			"name": "Consultar Llave id cancelada",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
+							"pm.test(\"Status code is 502\", function () {\r",
+							"    pm.response.to.have.status(502);\r",
 							"});\r",
 							"\r",
 							"\r",
-							"// Obtén la respuesta como un objeto JSON\r",
-							"var jsonData = pm.response.json();\r",
-							"\r",
-							"// Captura el valor de la variable `status`\r",
-							"var status = jsonData.data.status;\r",
-							"\r",
-							"// Valida que el valor de `status` sea \"LOCK\"\r",
-							"pm.test(\"Status es LOCK\", function () {\r",
-							"    pm.expect(status).to.eql(\"LOCK\");\r",
-							"})"
+							""
 						],
 						"type": "text/javascript",
 						"packages": {}
