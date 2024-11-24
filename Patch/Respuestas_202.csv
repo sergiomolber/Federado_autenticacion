@@ -1,13 +1,13 @@
 ﻿status,accountNumber,signer,spbvi,keyType,keyValue,comentario
-"""""","""{{$randomBankAccount}}""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{$randomNumber}}""",Validar campo status al enviarlo vacio
-null,"""{{$randomBankAccount}}""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{$randomNumber}}""",Validar campo status al enviarlo null
-"""ACTIVE""","""{{$randomBankAccount}}""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{$randomNumber}}""",Validar campos de salida presentados en el status 202
-"""ACTIVE""","""{{$randomBankAccount}}""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{$randomNumber}}""",Validar que se pueda cambiar el accountNumber
-"""ACTIVE""","""{{$randomBankAccount}}""","""{{$randomBankAccount}}""",null,"""ID""","""{{$randomNumber}}""",Validar que se envie null spbvi
-"""ACTIVE""","""{{$randomBankAccount}}""","""{{$randomBankAccount}}""","""""","""ID""","""{{$randomNumber}}""",Validar que se envie vacio spbvi
-"""ACTIVE""","""{{$randomBankAccount}}""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{$randomNumber}}""",Verificación de la modificación del tipo de  llave (nueva llave no repetida)-happy pathc
-"""ACTIVE""","""{{$randomBankAccount}}""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{$randomNumber}}""",Verificación de la modificación del medio de pago asociado a la llave
-"""ACTIVE""","""{{$randomBankAccount}}""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{$randomNumber}}""",Verificación de la modificación de la llave y el medio de pago al mismo tiempo (tipo de llave no repetida)
+"""""","""{{$randomBankAccount}}""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{randomNumber}}""",Validar campo status al enviarlo vacio
+null,"""{{$randomBankAccount}}""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{randomNumber}}""",Validar campo status al enviarlo null
+"""ACTIVE""","""{{$randomBankAccount}}""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{randomNumber}}""",Validar campos de salida presentados en el status 202
+"""ACTIVE""","""{{$randomBankAccount}}""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{randomNumber}}""",Validar que se pueda cambiar el accountNumber
+"""ACTIVE""","""{{$randomBankAccount}}""","""{{$randomBankAccount}}""",null,"""ID""","""{{randomNumber}}""",Validar que se envie null spbvi
+"""ACTIVE""","""{{$randomBankAccount}}""","""{{$randomBankAccount}}""","""""","""ID""","""{{randomNumber}}""",Validar que se envie vacio spbvi
+"""ACTIVE""","""{{$randomBankAccount}}""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{randomNumber}}""",Verificación de la modificación del tipo de  llave (nueva llave no repetida)-happy pathc
+"""ACTIVE""","""{{$randomBankAccount}}""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{randomNumber}}""",Verificación de la modificación del medio de pago asociado a la llave
+"""ACTIVE""","""{{$randomBankAccount}}""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{randomNumber}}""",Verificación de la modificación de la llave y el medio de pago al mismo tiempo (tipo de llave no repetida)
 """ACTIVE""","""{{$randomBankAccount}}""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{randomCel}}""",Actualizar llave con tipo de llave Número de celular Nacional iniciando con el numero 3
 """ACTIVE""","""{{$randomBankAccount}}""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{randomEmail}}""",Actualizar llave con tipo de llave correo electrónico iniciando correctamente
 """ACTIVE""","""{{$randomBankAccount}}""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{randomVariable1}}""",Actualizar llave con tipo de llave identificador alfanumerico correctamente iniciando con el @ 
