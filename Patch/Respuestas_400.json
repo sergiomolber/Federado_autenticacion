@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "256db4ec-854e-407a-9d5d-18dd7dc8bb88",
-		"name": "Patch codigo 400-1013",
+		"_postman_id": "1708e9b2-e981-4579-8952-ca3c5f07eb11",
+		"name": "Patch codigo 400-1013 Copy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "31315694",
-		"_collection_link": "https://warped-rocket-761289.postman.co/workspace/DIRECTORIO-FEDERADO-MARCAS-DE-T~4750160b-239b-41c4-ba50-3aa6b2288dc6/collection/31315694-256db4ec-854e-407a-9d5d-18dd7dc8bb88?action=share&source=collection_link&creator=31315694"
+		"_exporter_id": "29460625",
+		"_collection_link": "https://red-satellite-829132.postman.co/workspace/Federado-nuevo-regulacion~edb26dcb-0ea0-4f47-b49c-4b8bf44685bd/collection/29460625-1708e9b2-e981-4579-8952-ca3c5f07eb11?action=share&source=collection_link&creator=29460625"
 	},
 	"item": [
 		{
@@ -14,7 +14,9 @@
 					"listen": "prerequest",
 					"script": {
 						"exec": [
-							""
+							"//Para tomar cel aleatorio\r",
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );"
 						],
 						"type": "text/javascript",
 						"packages": {}
