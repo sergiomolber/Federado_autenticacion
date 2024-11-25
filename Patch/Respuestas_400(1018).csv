@@ -1,3 +1,3 @@
 ﻿status,accountType,accountNumber,signer,spbvi,comentario
-"""ACTIVE""","""SAVING_ACCOUNT""","""53612622""","""0SGL3o8pzxq_Lqa""","""TFY""",Validar campo spbvi al enviarlo vacio
-"""ACTIVE""","""SAVING_ACCOUNT""","""53612622""","""0SGL3o8pzxq_Lqa""","""TFY""",Validar campo spbvi al enviarlo null
+"""ACTIVE""","""SAVING_ACCOUNT""","""53612622""","""0SGL3o8pzxq_Lqa""","""""",Validar campo spbvi al enviarlo vacio
+"""ACTIVE""","""SAVING_ACCOUNT""","""53612622""","""0SGL3o8pzxq_Lqa""",null,Validar campo spbvi al enviarlo null
