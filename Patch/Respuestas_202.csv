@@ -4,7 +4,7 @@
 """ACTIVE""","""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{randomNumber}}""",Validar campos de salida presentados en el status 202
 """ACTIVE""","""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{randomNumber}}""",Verificación de la modificación del tipo de  llave (nueva llave no repetida)-happy pathc
 """ACTIVE""","""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{randomNumber}}""",Validar que se pueda cambiar el accountNumber
-"""ACTIVE""",{{$randomAlphaNumeric}},"""SAVING_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{randomNumber}}""",Validar que se pueda cambiar el accountType
+"""ACTIVE""",{{$randomBankAccount}},"""SAVING_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{randomNumber}}""",Validar que se pueda cambiar el accountType
 """ACTIVE""","""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{randomNumber}}""",Verificación de la modificación del medio de pago asociado a la llave
 """ACTIVE""","""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{randomNumber}}""",Verificación de la modificación de la llave y el medio de pago al mismo tiempo (tipo de llave no repetida)
 """ACTIVE""","""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""CEL""","""{{randomCel}}""",Actualizar llave con tipo de llave Número de celular Nacional iniciando con el numero 3
