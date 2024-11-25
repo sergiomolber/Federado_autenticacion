@@ -1,8 +1,3 @@
 ﻿status,accountType,accountNumber,signer,spbvi,comentario
-"""ACTIVE""","""""","""53612622""","""0SGL3o8pzxq_Lqa""","""TFY""",Validar campo accountType al enviarlo vacio
-"""ACTIVE""",null,"""53612622""","""0SGL3o8pzxq_Lqa""","""TFY""",Validar campo accountType al enviarlo null
-"""ACTIVE""","""ORDINARY_DEPOSIT""","""""","""0SGL3o8pzxq_Lqa""","""TFY""",Validar campo accountNumber al enviarlo vacio
-"""ACTIVE""","""ORDINARY_DEPOSIT""",null,"""0SGL3o8pzxq_Lqa""","""TFY""",Validar campo accountNumber al enviarlo null
-"""ACTIVE""","""ORDINARY_DEPOSIT""","""53612622""","""""","""TFY""",Validar campo Signeral enviarlo vacio
-"""ACTIVE""","""ORDINARY_DEPOSIT""","""53612622""",null,"""TFY""",Validar campo Signeral enviarlo null
-"""ACTIVE""","""ORDINARY_DEPOSIT""","""53612622""","""""","""TFY""",Validar campo Signer al no superar su longitud minima
+"""ACTIVE""","""SAVING_ACCOUNT""","""53612622""","""0SGL3o8pzxq_Lqa""","""TFY""",Validar campo spbvi al enviarlo vacio
+"""ACTIVE""","""SAVING_ACCOUNT""","""53612622""","""0SGL3o8pzxq_Lqa""","""TFY""",Validar campo spbvi al enviarlo null
