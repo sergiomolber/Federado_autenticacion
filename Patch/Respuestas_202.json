@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "007194d0-ea8a-42ba-9a63-09d0188b09ba",
+		"_postman_id": "db5c5f1f-b8a9-40bb-b10e-13b1033a5d8c",
 		"name": "Patch codigo 202",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "31315694",
-		"_collection_link": "https://warped-rocket-761289.postman.co/workspace/DIRECTORIO-FEDERADO-MARCAS-DE-T~4750160b-239b-41c4-ba50-3aa6b2288dc6/collection/31315694-007194d0-ea8a-42ba-9a63-09d0188b09ba?action=share&source=collection_link&creator=31315694"
+		"_exporter_id": "29460625",
+		"_collection_link": "https://red-satellite-829132.postman.co/workspace/Federado-nuevo-regulacion~edb26dcb-0ea0-4f47-b49c-4b8bf44685bd/collection/29460625-db5c5f1f-b8a9-40bb-b10e-13b1033a5d8c?action=share&source=collection_link&creator=29460625"
 	},
 	"item": [
 		{
@@ -140,7 +140,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"key\":{\r\n  \"keyType\": {{keyType}},\r\n  \"keyValue\": {{keyValue}},\r\n  \"status\": {{status}},\r\n  \"spbvi\": {{spbvi}}\r\n  },\r\n  \"account\": {\r\n    \"accountType\":\"{{accountType}}\",\r\n            \"accountNumber\": {{accountNumber}},\r\n            \"signer\": {{signer}}\r\n  }\r\n}",
+					"raw": "{\r\n  \"key\":{\r\n  \"keyType\": {{keyType}},\r\n  \"keyValue\": {{keyValue}},\r\n  \"status\": {{status}},\r\n  \"spbvi\": {{spbvi}}\r\n  },\r\n  \"account\": {\r\n    \"accountType\":{{accountType}},\r\n            \"accountNumber\": {{$}},\r\n            \"signer\": {{signer}}\r\n  }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
