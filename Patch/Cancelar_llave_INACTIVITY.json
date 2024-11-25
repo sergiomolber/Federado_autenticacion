@@ -8,7 +8,7 @@
 	},
 	"item": [
 		{
-			"name": "Crear Llave para cancelar",
+			"name": "Crear Llave para INACTIVITY",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -138,7 +138,7 @@
 			"response": []
 		},
 		{
-			"name": "Actualizar Llave cancelar",
+			"name": "Actualizar Llave INACTIVITY",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -225,7 +225,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"key\":{\r\n  \"status\": \"CANCEL\",\r\n  \"cancellationReason\": \"INACTIVITY \",\r\n   \"spbvi\": \"TFY\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"{{accountType}}\",\r\n            \"accountNumber\": \"{{accountNumber}}\",\r\n            \"signer\": \"{{signer}}\"\r\n  }\r\n}",
+					"raw": "{\r\n  \"key\":{\r\n  \"status\": \"CANCEL\",\r\n  \"cancellationReason\": \"INACTIVITY\",\r\n   \"spbvi\": \"TFY\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"{{accountType}}\",\r\n            \"accountNumber\": \"{{accountNumber}}\",\r\n            \"signer\": \"{{signer}}\"\r\n  }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -249,7 +249,7 @@
 			"response": []
 		},
 		{
-			"name": "Consultar Llave id cancelada",
+			"name": "Consultar Llave id INACTIVITY",
 			"event": [
 				{
 					"listen": "test",
