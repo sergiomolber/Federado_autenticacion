@@ -140,7 +140,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"key\":{\r\n  \"keyType\": {{keyType}},\r\n  \"keyValue\": {{keyValue}},\r\n  \"status\": {{status}},\r\n  \"spbvi\": {{spbvi}}\r\n  },\r\n  \"account\": {\r\n    \"accountType\":{{accountType}},\r\n            \"accountNumber\": {{$}},\r\n            \"signer\": {{signer}}\r\n  }\r\n}",
+					"raw": "{\r\n  \"key\":{\r\n  \"keyType\": {{keyType}},\r\n  \"keyValue\": {{keyValue}},\r\n  \"status\": {{status}},\r\n  \"spbvi\": {{spbvi}}\r\n  },\r\n  \"account\": {\r\n    \"accountType\":{{accountType}},\r\n            \"accountNumber\": {{accountNumber}},\r\n            \"signer\": {{signer}}\r\n  }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

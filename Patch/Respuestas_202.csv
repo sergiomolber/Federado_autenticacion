@@ -7,7 +7,7 @@
 """ACTIVE""",{{$randomAlphaNumeric}},"""SAVING_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{randomNumber}}""",Validar que se pueda cambiar el accountType
 """ACTIVE""","""{{$randomBankAccount}}""","""{{accountType}}""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{randomNumber}}""",Verificación de la modificación del medio de pago asociado a la llave
 """ACTIVE""","""{{$randomBankAccount}}""","""{{accountType}}""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{randomNumber}}""",Verificación de la modificación de la llave y el medio de pago al mismo tiempo (tipo de llave no repetida)
-"""ACTIVE""","""{{$randomBankAccount}}""","""{{accountType}}""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{randomCel}}""",Actualizar llave con tipo de llave Número de celular Nacional iniciando con el numero 3
+"""ACTIVE""","""{{$randomBankAccount}}""","""{{accountType}}""","""{{$randomBankAccount}}""","""TFY""","""CEL""","""{{randomCel}}""",Actualizar llave con tipo de llave Número de celular Nacional iniciando con el numero 3
 """ACTIVE""","""{{$randomBankAccount}}""","""{{accountType}}""","""{{$randomBankAccount}}""","""TFY""","""EMAIL""","""{{randomEmail}}""",Actualizar llave con tipo de llave correo electrónico iniciando correctamente
 """ACTIVE""","""{{$randomBankAccount}}""","""{{accountType}}""","""{{$randomBankAccount}}""","""TFY""","""ALFANUMERIC""","""{{randomVariable1}}""",Actualizar llave con tipo de llave identificador alfanumerico correctamente iniciando con el @ 
 """ACTIVE""","""{{$randomBankAccount}}""","""{{accountType}}""","""{{$randomBankAccount}}""","""TFY""","""MERCHANTID""","""{{randomVariable2}}""",Actualizar llave con tipo de llave Código asignado al establecimiento de comercio correctamente
