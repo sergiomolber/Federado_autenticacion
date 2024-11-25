@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "de94bb43-bad8-4ad8-b8c2-466c4e26969c",
+		"_postman_id": "a64fc097-1194-435e-acbb-7552650d18bf",
 		"name": "Codigo (no enviado) Post",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "29460625",
-		"_collection_link": "https://red-satellite-829132.postman.co/workspace/Federado-post~65275c7a-6894-4d96-8a09-0fc3a353c835/collection/29460625-de94bb43-bad8-4ad8-b8c2-466c4e26969c?action=share&source=collection_link&creator=29460625"
+		"_collection_link": "https://red-satellite-829132.postman.co/workspace/prueba-federado~4f27235c-04df-4b6c-81ae-7ca48b4eeddb/collection/29460625-a64fc097-1194-435e-acbb-7552650d18bf?action=share&source=collection_link&creator=29460625"
 	},
 	"item": [
 		{
@@ -3275,7 +3275,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Giovany\",\r\n    \"secondName\": \"Mauricio\",\r\n    \"firstLastName\": \"cuellar\",\r\n    \"secondLastName\": \"pena\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"9899376583222\",\r\n    \"userType\": \"PJ\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"CURRENT_ACCOUNT\",\r\n    \"accountNumber\": \"15242549\",\r\n    \"entityCode\": \"1031\",\r\n    \"signer\":\"393a86c2-5250-4c99-8a2b-d8aebab86c92\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"EMAIL\",\r\n    \"keyValue\": \"9899376582232\",\r\n    \"spbvi\": \"TFY\"\r\n  }\r\n}",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": \"Giovany\",\r\n    \"secondName\": \"Mauricio\",\r\n    \"firstLastName\": \"cuellar\",\r\n    \"secondLastName\": \"pena\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"9899376583222\",\r\n    \"userType\": \"PJ\",\r\n    \"merchantName\": \"D552\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"CURRENT_ACCOUNT\",\r\n    \"accountNumber\": \"15242549\",\r\n    \"entityCode\": \"1031\",\r\n    \"signer\":\"393a86c2-5250-4c99-8a2b-d8aebab86c92\"\r\n  },\r\n  \"key\": {\r\n    \"keyType\": \"ID\",\r\n    \"keyValue\": \"9899376582232\",\r\n    \"spbvi\": \"TFY\"\r\n  }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
