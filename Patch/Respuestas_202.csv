@@ -1,6 +1,6 @@
 ﻿status,accountNumber,accountType,signer,spbvi,keyType,keyValue,comentario
 """""","""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{randomNumber}}""",Validar campo status al enviarlo vacio
-"""null""","""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{randomNumber}}""",Validar campo status al enviarlo null
+null,"""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{randomNumber}}""",Validar campo status al enviarlo null
 """ACTIVE""","""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{randomNumber}}""",Validar campos de salida presentados en el status 202
 """ACTIVE""","""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{randomNumber}}""",Verificación de la modificación del tipo de  llave (nueva llave no repetida)-happy pathc
 """ACTIVE""","""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{randomNumber}}""",Validar que se pueda cambiar el accountNumber

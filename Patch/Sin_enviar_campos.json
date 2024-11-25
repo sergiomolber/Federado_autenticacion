@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "32214d21-6118-40f8-8a01-4913cf4e70ef",
+		"_postman_id": "857e58c3-1b9f-4f20-a64b-741b2654dd71",
 		"name": "Patch codigo Sin enviar campos",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "31315694",
-		"_collection_link": "https://warped-rocket-761289.postman.co/workspace/DIRECTORIO-FEDERADO-MARCAS-DE-T~4750160b-239b-41c4-ba50-3aa6b2288dc6/collection/31315694-32214d21-6118-40f8-8a01-4913cf4e70ef?action=share&source=collection_link&creator=31315694"
+		"_exporter_id": "29460625",
+		"_collection_link": "https://red-satellite-829132.postman.co/workspace/Federado-nuevo-regulacion~edb26dcb-0ea0-4f47-b49c-4b8bf44685bd/collection/29460625-857e58c3-1b9f-4f20-a64b-741b2654dd71?action=share&source=collection_link&creator=29460625"
 	},
 	"item": [
 		{
@@ -25,8 +25,8 @@
 					"script": {
 						"exec": [
 							"\r",
-							"pm.test(\"Status code is 400\", function () {\r",
-							"    pm.response.to.have.status(400);\r",
+							"pm.test(\"Status code is 500\", function () {\r",
+							"    pm.response.to.have.status(500);\r",
 							"});\r",
 							"\r",
 							""
@@ -118,8 +118,8 @@
 					"script": {
 						"exec": [
 							"\r",
-							"pm.test(\"Status code is 400\", function () {\r",
-							"    pm.response.to.have.status(400);\r",
+							"pm.test(\"Status code is 500\", function () {\r",
+							"    pm.response.to.have.status(500);\r",
 							"});\r",
 							"\r",
 							""
@@ -211,8 +211,8 @@
 					"script": {
 						"exec": [
 							"\r",
-							"pm.test(\"Status code is 400\", function () {\r",
-							"    pm.response.to.have.status(400);\r",
+							"pm.test(\"Status code is 500\", function () {\r",
+							"    pm.response.to.have.status(500);\r",
 							"});\r",
 							"\r",
 							""
@@ -356,7 +356,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"key\":{\r\n  \"status\": \"INACTIVE\",\r\n  \"spbvi\": {{spbvi}}\r\n  },\r\n \r\n  \"account\": {\r\n    \"accountType\":\" {{accountType}}\",\r\n            \"accountNumber\":\"{{accountNumber}}\",\r\n            \"signer\": \"{{signer}}\"\r\n  }\r\n}",
+					"raw": "{\r\n  \"key\":{\r\n  \"status\": \"INACTIVE\"\r\n  \r\n  },\r\n \r\n  \"account\": {\r\n    \"accountType\":\" {{accountType}}\",\r\n            \"accountNumber\":\"{{accountNumber}}\",\r\n            \"signer\": \"{{signer}}\"\r\n  }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -762,8 +762,8 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 400\", function () {\r",
-							"    pm.response.to.have.status(400);\r",
+							"pm.test(\"Status code is 202\", function () {\r",
+							"    pm.response.to.have.status(202);\r",
 							"});\r",
 							"\r",
 							"const responseJson = pm.response.json();\r",
@@ -1620,7 +1620,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"key\":{\r\n  \"status\": \"{{randomStatus}}\",\r\n   \"spbvi\": \"TFY\",\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"{{accountType}}\",\r\n            \"accountNumber\": \"{{accountNumber}}\",\r\n            \"signer\": \"{{signer}}\"\r\n  }\r\n}",
+					"raw": "{\r\n  \"key\":{\r\n  \"status\": \"{{randomStatus}}\",\r\n   \"spbvi\": \"TFY\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"{{accountType}}\",\r\n            \"accountNumber\": \"{{accountNumber}}\",\r\n            \"signer\": \"{{signer}}\"\r\n  }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1887,18 +1887,10 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 409\", function () {\r",
-							"    pm.response.to.have.status(409);\r",
+							"pm.test(\"Status code is 202\", function () {\r",
+							"    pm.response.to.have.status(202);\r",
 							"});\r",
-							"// Verifica si la variable es igual a 1013\r",
-							"const responseJson = pm.response.json();\r",
-							"const code = responseJson.errors[0].code;\r",
-							"const codenum = Number(code);\r",
-							"pm.environment.set(\"codenum\", codenum);\r",
-							"\r",
-							"pm.test(\"La variable de entorno 'code' es 1013\", function () {\r",
-							"  pm.expect(codenum).to.equal(1013); \r",
-							"});"
+							""
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -2052,7 +2044,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n \"key\":{\r\n \"status\": \"LOCK\",\r\n  \"spbvi\": \"TFY\"\r\n},\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n            \"accountNumber\": \"{{accountNumber}}\",\r\n            \"signer\": \"{{signerRERE}}\"\r\n  }\r\n}",
+					"raw": "{\r\n \"key\":{\r\n \"status\": \"LOCK\",\r\n  \"spbvi\": \"TFY\"\r\n},\r\n  \"account\": {\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n            \"accountNumber\": \"31914806\",\r\n            \"signer\": \"68f6d00c-385b-4c7f-ac84-db5a0cab77a4\"\r\n  }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -2197,18 +2189,10 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 400\", function () {\r",
-							"    pm.response.to.have.status(400);\r",
+							"pm.test(\"Status code is 202\", function () {\r",
+							"    pm.response.to.have.status(202);\r",
 							"});\r",
-							"// Verifica si la variable es igual a 1018\r",
-							"const responseJson = pm.response.json();\r",
-							"const code = responseJson.errors[0].code;\r",
-							"const codenum = Number(code);\r",
-							"pm.environment.set(\"codenum\", codenum);\r",
-							"\r",
-							"pm.test(\"La variable de entorno 'code' es 1018\", function () {\r",
-							"  pm.expect(codenum).to.equal(1018); \r",
-							"});"
+							""
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -2303,17 +2287,8 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 400\", function () {\r",
-							"    pm.response.to.have.status(400);\r",
-							"});\r",
-							"// Verifica si la variable es igual a 1018\r",
-							"const responseJson = pm.response.json();\r",
-							"const code = responseJson.errors[0].code;\r",
-							"const codenum = Number(code);\r",
-							"pm.environment.set(\"codenum\", codenum);\r",
-							"\r",
-							"pm.test(\"La variable de entorno 'code' es 1018\", function () {\r",
-							"  pm.expect(codenum).to.equal(1018); \r",
+							"pm.test(\"Status code is 202\", function () {\r",
+							"    pm.response.to.have.status(202);\r",
 							"});"
 						],
 						"type": "text/javascript",
