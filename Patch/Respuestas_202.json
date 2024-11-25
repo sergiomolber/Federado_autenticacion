@@ -148,7 +148,7 @@
 					}
 				},
 				"url": {
-					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys/{{id}}",
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys/99132999-0183-4bfc-b657-002192a1dba0",
 					"host": [
 						"{{base-url}}"
 					],
@@ -157,7 +157,7 @@
 						"entities",
 						"{{entidad}}",
 						"keys",
-						"{{id}}"
+						"99132999-0183-4bfc-b657-002192a1dba0"
 					]
 				}
 			},
