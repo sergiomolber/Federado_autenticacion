@@ -15,8 +15,8 @@
 					"script": {
 						"exec": [
 							"// Asegúrate de que la respuesta está en el formato JSON\r",
-							"pm.test(\"Status code is 400\", function () {\r",
-							"    pm.response.to.have.status(400);\r",
+							"pm.test(\"Status code is 409\", function () {\r",
+							"    pm.response.to.have.status(409);\r",
 							"});\r",
 							"\r",
 							"// captura la variable code es igual a 1013\r",
