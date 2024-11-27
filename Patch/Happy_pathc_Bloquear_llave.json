@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "747bdcef-30c4-4c51-9fc4-0bb068bb1d97",
+		"_postman_id": "a391114f-b437-49fe-8943-149f95d45f6d",
 		"name": "Happy patch Bloquear llave",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "29460625",
-		"_collection_link": "https://red-satellite-829132.postman.co/workspace/Federado-nuevo-regulacion~edb26dcb-0ea0-4f47-b49c-4b8bf44685bd/collection/29460625-747bdcef-30c4-4c51-9fc4-0bb068bb1d97?action=share&source=collection_link&creator=29460625"
+		"_collection_link": "https://red-satellite-829132.postman.co/workspace/ULTIMO-FEDERADO-REGULACION~0d3103fa-a7a9-4c97-9188-b83d2120c143/collection/29460625-a391114f-b437-49fe-8943-149f95d45f6d?action=share&source=collection_link&creator=29460625"
 	},
 	"item": [
 		{
@@ -97,12 +97,12 @@
 					},
 					{
 						"key": "customer-request-dt",
-						"value": "{{customer-request-dt}}",
+						"value": "{{customer-request-dt_post}}",
 						"type": "text"
 					},
 					{
 						"key": "entity-request-dt",
-						"value": "{{entity-request-dt}}",
+						"value": "{{entity-request-dt_post}}",
 						"type": "text"
 					},
 					{
@@ -207,12 +207,12 @@
 					},
 					{
 						"key": "customer-request-dt",
-						"value": "2024-08-05T10:24:53.600Z",
+						"value": "{{customer-request-dt}}",
 						"type": "text"
 					},
 					{
 						"key": "entity-request-dt",
-						"value": "2024-08-05T10:24:53.600Z",
+						"value": "{{customer-request-dt}}",
 						"type": "text"
 					},
 					{
