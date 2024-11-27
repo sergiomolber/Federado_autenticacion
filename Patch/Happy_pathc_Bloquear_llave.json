@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "4cb84b1c-1602-4789-b3ac-9682abbbf381",
+		"_postman_id": "747bdcef-30c4-4c51-9fc4-0bb068bb1d97",
 		"name": "Happy patch Bloquear llave",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "31315694",
-		"_collection_link": "https://warped-rocket-761289.postman.co/workspace/DIRECTORIO-FEDERADO-MARCAS-DE-T~4750160b-239b-41c4-ba50-3aa6b2288dc6/collection/31315694-4cb84b1c-1602-4789-b3ac-9682abbbf381?action=share&source=collection_link&creator=31315694"
+		"_exporter_id": "29460625",
+		"_collection_link": "https://red-satellite-829132.postman.co/workspace/Federado-nuevo-regulacion~edb26dcb-0ea0-4f47-b49c-4b8bf44685bd/collection/29460625-747bdcef-30c4-4c51-9fc4-0bb068bb1d97?action=share&source=collection_link&creator=29460625"
 	},
 	"item": [
 		{
@@ -207,12 +207,12 @@
 					},
 					{
 						"key": "customer-request-dt",
-						"value": "{{customer-request-dt}}",
+						"value": "2024-08-05T10:24:53.600Z",
 						"type": "text"
 					},
 					{
 						"key": "entity-request-dt",
-						"value": "{{entity-request-dt}}",
+						"value": "2024-08-05T10:24:53.600Z",
 						"type": "text"
 					},
 					{
