@@ -124,12 +124,12 @@
 					},
 					{
 						"key": "customer-request-dt",
-						"value": "{{customer-request-dt}}",
+						"value": "2024-08-05T10:24:53.600Z",
 						"type": "text"
 					},
 					{
 						"key": "entity-request-dt",
-						"value": "{{entity-request-dt}}",
+						"value": "2024-08-05T10:24:53.600Z",
 						"type": "text"
 					},
 					{
