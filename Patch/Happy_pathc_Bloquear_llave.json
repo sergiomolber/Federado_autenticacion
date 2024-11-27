@@ -299,12 +299,12 @@
 					},
 					{
 						"key": "customer-request-dt",
-						"value": "{{customer-request-dt}}",
+						"value": "{{customer-request-dt_post}}",
 						"type": "text"
 					},
 					{
 						"key": "entity-request-dt",
-						"value": "{{entity-request-dt}}",
+						"value": "{{customer-request-dt_post}}",
 						"type": "text"
 					},
 					{

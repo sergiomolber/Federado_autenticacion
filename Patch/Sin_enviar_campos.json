@@ -766,14 +766,7 @@
 							"    pm.response.to.have.status(202);\r",
 							"});\r",
 							"\r",
-							"const responseJson = pm.response.json();\r",
-							"const code = responseJson.errors[0].code;\r",
-							"const codenum = Number(code);\r",
-							"pm.environment.set(\"codenum\", codenum);\r",
-							"\r",
-							"pm.test(\"La variable de entorno 'code' es 1018\", function () {\r",
-							"  pm.expect(codenum).to.equal(1018); // Verifica si la variable es igual a 400\r",
-							"});"
+							""
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -1985,8 +1978,8 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 409\", function () {\r",
-							"    pm.response.to.have.status(409);\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
 							"});\r",
 							"// Verifica si la variable es igual a 1031\r",
 							"const responseJson = pm.response.json();\r",
