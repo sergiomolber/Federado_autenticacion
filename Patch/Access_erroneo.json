@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "d0b4d661-c74e-4cbe-8cee-a68bae7fb8af",
+		"_postman_id": "f4566cf3-93fd-4568-985e-8a0755820b58",
 		"name": "Happy patch Bloquear llave con access erroneo",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "31315694",
-		"_collection_link": "https://warped-rocket-761289.postman.co/workspace/DIRECTORIO-FEDERADO-MARCAS-DE-T~4750160b-239b-41c4-ba50-3aa6b2288dc6/collection/31315694-d0b4d661-c74e-4cbe-8cee-a68bae7fb8af?action=share&source=collection_link&creator=31315694"
+		"_exporter_id": "29460625",
+		"_collection_link": "https://red-satellite-829132.postman.co/workspace/ULTIMO-FEDERADO-REGULACION~0d3103fa-a7a9-4c97-9188-b83d2120c143/collection/29460625-f4566cf3-93fd-4568-985e-8a0755820b58?action=share&source=collection_link&creator=29460625"
 	},
 	"item": [
 		{
@@ -97,12 +97,12 @@
 					},
 					{
 						"key": "customer-request-dt",
-						"value": "{{customer-request-dt}}",
+						"value": "{{customer-request-dt_post}}",
 						"type": "text"
 					},
 					{
 						"key": "entity-request-dt",
-						"value": "{{entity-request-dt}}",
+						"value": "{{entity-request-dt_post}}",
 						"type": "text"
 					},
 					{
@@ -280,12 +280,12 @@
 					},
 					{
 						"key": "customer-request-dt",
-						"value": "{{customer-request-dt}}",
+						"value": "{{customer-request-dt_post}}",
 						"type": "text"
 					},
 					{
 						"key": "entity-request-dt",
-						"value": "{{entity-request-dt}}",
+						"value": "{{entity-request-dt_post}}",
 						"type": "text"
 					},
 					{
