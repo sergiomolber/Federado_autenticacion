@@ -1,19 +1,19 @@
 ﻿status,accountNumber,accountType,signer,spbvi,keyType,keyValue,comentario
-"""""","""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{randomNumber}}""",ValMERCHANTIDar campo status al enviarlo vacio
-null,"""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""MERCHANTID""","""{{randomVariable2}}""",ValMERCHANTIDar campo status al enviarlo null
-"""ACTIVE""","""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""MERCHANTID""","""{{randomVariable2}}""",ValMERCHANTIDar campos de salMERCHANTIDa presentados en el status 202
+"""""","""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""ID""","""{{randomNumber}}""",Validar campo status al enviarlo vacio
+null,"""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""MERCHANTID""","""{{randomVariable2}}""",Validar campo status al enviarlo null
+"""ACTIVE""","""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""MERCHANTID""","""{{randomVariable2}}""",Validar campos de salida presentados en el status 202
 """ACTIVE""","""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""MERCHANTID""","""{{randomVariable2}}""",Verificación de la modificación del tipo de  llave (nueva llave no repetMERCHANTIDa)-happy pathc
-"""ACTIVE""","""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""MERCHANTID""","""{{randomVariable2}}""",ValMERCHANTIDar que se pueda cambiar el accountNumber
-"""ACTIVE""",{{$randomBankAccount}},"""SAVING_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""MERCHANTID""","""{{randomVariable2}}""",ValMERCHANTIDar que se pueda cambiar el accountType
+"""ACTIVE""","""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""MERCHANTID""","""{{randomVariable2}}""",Validar que se pueda cambiar el accountNumber
+"""ACTIVE""",{{$randomBankAccount}},"""SAVING_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""MERCHANTID""","""{{randomVariable2}}""",Validar que se pueda cambiar el accountType
 """ACTIVE""","""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""MERCHANTID""","""{{randomVariable2}}""",Verificación de la modificación del medio de pago asociado a la llave
 """ACTIVE""","""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""MERCHANTID""","""{{randomVariable2}}""",Verificación de la modificación de la llave y el medio de pago al mismo tiempo (tipo de llave no repetMERCHANTIDa)
 """ACTIVE""","""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""CEL""","""{{randomCel}}""",Actualizar llave con tipo de llave Número de celular Nacional iniciando con el numero 3
 """ACTIVE""","""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""EMAIL""","""{{randomEmail}}""",Actualizar llave con tipo de llave correo electrónico iniciando correctamente
 """ACTIVE""","""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""ALFANUMERIC""","""{{randomVariable1}}""",Actualizar llave con tipo de llave MERCHANTIDentificador alfanumerico correctamente iniciando con el @ 
 """ACTIVE""","""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""MERCHANTMERCHANTID""","""{{randomVariable2}}""",Actualizar llave con tipo de llave Código asignado al establecimiento de comercio correctamente
-"""ACTIVE""","""{{$randomBankAccount}}""","""""","""{{$randomBankAccount}}""","""TFY""","""MERCHANTMERCHANTID""","""{{randomVariable2}}""",ValMERCHANTIDar campo accountType al enviarlo vacio
-"""ACTIVE""","""{{$randomBankAccount}}""",null,"""{{$randomBankAccount}}""","""TFY""","""MERCHANTMERCHANTID""","""{{randomVariable2}}""",ValMERCHANTIDar campo accountType al enviarlo null
-"""ACTIVE""","""""","""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""MERCHANTMERCHANTID""","""{{randomVariable2}}""",ValMERCHANTIDar campo accountNumber al enviarlo vacio
-"""ACTIVE""",null,"""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""MERCHANTMERCHANTID""","""{{randomVariable2}}""",ValMERCHANTIDar campo accountNumber al enviarlo null
-"""ACTIVE""","""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""","""""","""TFY""","""MERCHANTMERCHANTID""","""{{randomVariable2}}""",ValMERCHANTIDar campo Signeral enviarlo vacio
-"""ACTIVE""","""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""",null,"""TFY""","""MERCHANTMERCHANTID""","""{{randomVariable2}}""",ValMERCHANTIDar campo Signeral enviarlo null
+"""ACTIVE""","""{{$randomBankAccount}}""","""""","""{{$randomBankAccount}}""","""TFY""","""MERCHANTMERCHANTID""","""{{randomVariable2}}""",Validar campo accountType al enviarlo vacio
+"""ACTIVE""","""{{$randomBankAccount}}""",null,"""{{$randomBankAccount}}""","""TFY""","""MERCHANTMERCHANTID""","""{{randomVariable2}}""",Validar campo accountType al enviarlo null
+"""ACTIVE""","""""","""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""MERCHANTMERCHANTID""","""{{randomVariable2}}""",Validar campo accountNumber al enviarlo vacio
+"""ACTIVE""",null,"""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""MERCHANTMERCHANTID""","""{{randomVariable2}}""",Validar campo accountNumber al enviarlo null
+"""ACTIVE""","""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""","""""","""TFY""","""MERCHANTMERCHANTID""","""{{randomVariable2}}""",Validar campo Signeral enviarlo vacio
+"""ACTIVE""","""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""",null,"""TFY""","""MERCHANTMERCHANTID""","""{{randomVariable2}}""",Validar campo Signeral enviarlo null
