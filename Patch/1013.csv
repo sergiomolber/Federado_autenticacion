@@ -1,0 +1,26 @@
+status,accountType,accountNumber,signer,spbvi,keyType,keyValue,comentario
+"""dfsdfd""","""ORDINARY_DEPOSIT""","""53612622""","""0SGL3o8pzxq_Lqa""","""TFY""","""ID""","""{{randomNumber}}""",Validar campo status al enviar un valor no permitido en el array
+"""ACTIVE""","""Para pruebas""","""53612622""","""0SGL3o8pzxq_Lqa""","""TFY""","""ID""","""{{randomNumber}}""",Validar campo accountType al enviar un valor no permitido en el array
+"""ACTIVE""","""ORDINARY_DEPOSIT""","""23456789098765434567898765432456434234323""","""0SGL3o8pzxq_Lqa""","""TFY""","""ID""","""{{randomNumber}}""",Validar campo accountNumber al superar su longitud maxima
+"""ACTIVE""","""ORDINARY_DEPOSIT""","""53612622""","""2345678909876543456789876543245643429""","""TFY""","""ID""","""{{randomNumber}}""",Validar campo Signer al superar su longitud maxima
+"""dfsdfd""","""ORDINARY_DEPOSIT""","""53612622""","""0SGL3o8pzxq_Lqa""","""TFY""","""ID""","""{{randomNumber}}""",Validar campos de salida presentados en el status 400
+"""ACTIVE""","""ORDINARY_DEPOSIT""","""53612622""","""0SGL3o8pzxq_Lqa""","""TFY3""","""ID""","""{{randomNumber}}""",Validar campo spbvi al enviar un valor no permitido
+"""ACTIVE""","""ORDINARY_DEPOSIT""","""53612622""","""0SGL3o8pzxq_Lqa""","""T3""","""ID""","""{{randomNumber}}""",Validar campo spbvi al enviar con menos de 3 caracteres
+"""ACTIVE""","""ORDINARY_DEPOSIT""","""53612622""","""2345678909876543456789876543245643429""","""TFY""","""ID""","""3f0e40f0-d298-4eae-984c-e49e2b2bc5ac""",Verificación de la modificación  tipo de  llave(nueva llave repetida)
+"""ACTIVE""","""ORDINARY_DEPOSIT""","""53612622""","""2345678909876543456789876543245643429""","""TFY""","""ID""","""3f0e40f0-d298-4eae-984c-e49e2b2bc5ac""",Verificación de la modificación de la llave y el medio de pago al mismo tiempo  (tipo llave repetida)
+"""ACTIVE""","""ORDINARY_DEPOSIT""","""53612622""","""0SGL3o8pzxq_Lqa""","""TFY""","""CEL""","""4544554454""",Actualizar llave con tipo de llave Número de celular Nacional iniciando con el numero diferente a 3
+"""ACTIVE""","""ORDINARY_DEPOSIT""","""53612622""","""0SGL3o8pzxq_Lqa""","""TFY""","""CEL""","""3 344 333""",Actualizar llave con tipo de llave Número de celular Nacional iniciando con el numero 3 y con espacios
+"""ACTIVE""","""ORDINARY_DEPOSIT""","""53612622""","""0SGL3o8pzxq_Lqa""","""TFY""","""CEL""","""3$%&&$$%%""",Actualizar llave con tipo de llave Número de celular Nacional iniciando con el numero 3 y con caracteres especiales
+"""ACTIVE""","""ORDINARY_DEPOSIT""","""53612622""","""0SGL3o8pzxq_Lqa""","""TFY""","""EMAIL""","""kfjlsdjfkldsjfklsdjkfldsjkfsdjk@colombia.com""",Actualizar llave con tipo de llave correo electrónico iniciando antes del arroba con mas de 30 caracteres y mas de 61 caracteres despues del arroba
+"""ACTIVE""","""ORDINARY_DEPOSIT""","""53612622""","""0SGL3o8pzxq_Lqa""","""TFY""","""EMAIL""","""molinabernal@gmailgmailgmailgmailgmailgmailgmailgmailgmailgmailgmailgm1.com""",Crear llave con tipo de llave correo electrónico con mas de 61 caracteres despues del arroba
+"""ACTIVE""","""ORDINARY_DEPOSIT""","""53612622""","""0SGL3o8pzxq_Lqa""","""TFY""","""EMAIL""","""@colombia.com""",Actualizar llave con tipo de llave correo electrónico iniciando antes del arroba con 0 caracteres
+"""ACTIVE""","""ORDINARY_DEPOSIT""","""53612622""","""0SGL3o8pzxq_Lqa""","""TFY""","""EMAIL""","""kfjlsdjfkldsjfklsdjkfldsjkkcolombia.com""",Actualizar llave con tipo de llave correo electrónico validando el formato con el @
+"""ACTIVE""","""ORDINARY_DEPOSIT""","""53612622""","""0SGL3o8pzxq_Lqa""","""TFY""","""ALFANUMERIC""","""@123""",Actualizar llave con tipo de llave identificador alfanumerico con menos de 5 caracteres
+"""ACTIVE""","""ORDINARY_DEPOSIT""","""53612622""","""0SGL3o8pzxq_Lqa""","""TFY""","""ALFANUMERIC""","""@123456789123456789123""",Actualizar llave con tipo de llave identificador alfanumerico con mas de 20 caracteres
+"""ACTIVE""","""ORDINARY_DEPOSIT""","""53612622""","""0SGL3o8pzxq_Lqa""","""TFY""","""ALFANUMERIC""","""1234567891""",Actualizar llave con tipo de llave identificador alfanumerico sin el @ 
+"""ACTIVE""","""ORDINARY_DEPOSIT""","""53612622""","""0SGL3o8pzxq_Lqa""","""TFY""","""MERCHANTID""","""3102047071""",Actualizar llave con tipo de llave Código asignado al establecimiento de comercio con mas de 10 caracteres y vacio
+"""ACTIVE""","""ORDINARY_DEPOSIT""","""53612622""","""0SGL3o8pzxq_Lqa""","""TFY""","""MERCHANTID""","""@3102047071""",Actualizar llave con tipo de llave Código asignado al establecimiento de comercio inciando con valores diferentes a 00
+"""ACTIVE""","""ORDINARY_DEPOSIT""","""53612622""","""0SGL3o8pzxq_Lqa""","""TFY""","""MERCHANTID""","""0012345""",Actualizar llave con codigo asignado ya existente
+"""ACTIVE""","""ORDINARY_DEPOSIT""","""53612622""","""0SGL3o8pzxq_Lqa""","""TFY""","""MERCHANTID""","""0098. """,Actualizar llave con tipo de llave Código asignado al establecimiento de comercio con espacio, punto y letras
+"""ACTIVE""","""SAVING_ACCOUNT""","""53612622""","""0SGL3o8pzxq_Lqa""","""""","""CEL""","""3102046709""",Validar campo spbvi al enviarlo vacio
+"""ACTIVE""","""SAVING_ACCOUNT""","""53612622""","""0SGL3o8pzxq_Lqa""",null,"""CEL""","""3239876543""",Validar campo spbvi al enviarlo null

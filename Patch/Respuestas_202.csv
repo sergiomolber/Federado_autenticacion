@@ -10,10 +10,10 @@ null,"""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""","""{{$randomBankAccount}
 """ACTIVE""","""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""CEL""","""{{randomCel}}""",Actualizar llave con tipo de llave Número de celular Nacional iniciando con el numero 3
 """ACTIVE""","""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""EMAIL""","""{{randomEmail}}""",Actualizar llave con tipo de llave correo electrónico iniciando correctamente
 """ACTIVE""","""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""ALFANUMERIC""","""{{randomVariable1}}""",Actualizar llave con tipo de llave MERCHANTIDentificador alfanumerico correctamente iniciando con el @ 
-"""ACTIVE""","""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""MERCHANTMERCHANTID""","""{{randomVariable2}}""",Actualizar llave con tipo de llave Código asignado al establecimiento de comercio correctamente
-"""ACTIVE""","""{{$randomBankAccount}}""","""""","""{{$randomBankAccount}}""","""TFY""","""MERCHANTMERCHANTID""","""{{randomVariable2}}""",Validar campo accountType al enviarlo vacio
-"""ACTIVE""","""{{$randomBankAccount}}""",null,"""{{$randomBankAccount}}""","""TFY""","""MERCHANTMERCHANTID""","""{{randomVariable2}}""",Validar campo accountType al enviarlo null
-"""ACTIVE""","""""","""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""MERCHANTMERCHANTID""","""{{randomVariable2}}""",Validar campo accountNumber al enviarlo vacio
-"""ACTIVE""",null,"""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""MERCHANTMERCHANTID""","""{{randomVariable2}}""",Validar campo accountNumber al enviarlo null
-"""ACTIVE""","""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""","""""","""TFY""","""MERCHANTMERCHANTID""","""{{randomVariable2}}""",Validar campo Signeral enviarlo vacio
-"""ACTIVE""","""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""",null,"""TFY""","""MERCHANTMERCHANTID""","""{{randomVariable2}}""",Validar campo Signeral enviarlo null
+"""ACTIVE""","""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""MERCHANTID""","""{{randomVariable2}}""",Actualizar llave con tipo de llave Código asignado al establecimiento de comercio correctamente
+"""ACTIVE""","""{{$randomBankAccount}}""","""""","""{{$randomBankAccount}}""","""TFY""","""MERCHANTID""","""{{randomVariable2}}""",Validar campo accountType al enviarlo vacio
+"""ACTIVE""","""{{$randomBankAccount}}""",null,"""{{$randomBankAccount}}""","""TFY""","""MERCHANTID""","""{{randomVariable2}}""",Validar campo accountType al enviarlo null
+"""ACTIVE""","""""","""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""MERCHANTID""","""{{randomVariable2}}""",Validar campo accountNumber al enviarlo vacio
+"""ACTIVE""",null,"""CURRENT_ACCOUNT""","""{{$randomBankAccount}}""","""TFY""","""MERCHANTID""","""{{randomVariable2}}""",Validar campo accountNumber al enviarlo null
+"""ACTIVE""","""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""","""""","""TFY""","""MERCHANTID""","""{{randomVariable2}}""",Validar campo Signeral enviarlo vacio
+"""ACTIVE""","""{{$randomBankAccount}}""","""CURRENT_ACCOUNT""",null,"""TFY""","""MERCHANTID""","""{{randomVariable2}}""",Validar campo Signeral enviarlo null
