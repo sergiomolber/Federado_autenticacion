@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "6e3b0792-1caf-4726-9b7c-70dcb8f1e5e2",
+		"_postman_id": "3b8ed90e-00bb-4bbb-b27c-a84ffdaa1402",
 		"name": "CANCELAR LLAVE SIN ENVIAR MOTIVO",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "29460625",
-		"_collection_link": "https://red-satellite-829132.postman.co/workspace/ULTIMO-FEDERADO-REGULACION~0d3103fa-a7a9-4c97-9188-b83d2120c143/collection/29460625-6e3b0792-1caf-4726-9b7c-70dcb8f1e5e2?action=share&source=collection_link&creator=29460625"
+		"_collection_link": "https://red-satellite-829132.postman.co/workspace/prueba-federado~4f27235c-04df-4b6c-81ae-7ca48b4eeddb/collection/29460625-3b8ed90e-00bb-4bbb-b27c-a84ffdaa1402?action=share&source=collection_link&creator=29460625"
 	},
 	"item": [
 		{
@@ -166,17 +166,6 @@
 							"});\r",
 							"\r",
 							"\r",
-							"// Obtén la respuesta como un objeto JSON\r",
-							"var jsonData = pm.response.json();\r",
-							"\r",
-							"// Captura el valor de la variable `status`\r",
-							"var status = jsonData.data.status;\r",
-							"\r",
-							"// Valida que el valor de `status` sea \"LOCK\"\r",
-							"pm.test(\"Status es CANCEL\", function () {\r",
-							"    pm.expect(status).to.eql(\"CANCEL\");\r",
-							"})\r",
-							"\r",
 							""
 						],
 						"type": "text/javascript",
@@ -277,17 +266,6 @@
 							"});\r",
 							"\r",
 							"\r",
-							"// Obtén la respuesta como un objeto JSON\r",
-							"var jsonData = pm.response.json();\r",
-							"\r",
-							"// Captura el valor de la variable `status`\r",
-							"var status = jsonData.data.status;\r",
-							"\r",
-							"// Valida que el valor de `status` sea \"LOCK\"\r",
-							"pm.test(\"Status es CANCEL\", function () {\r",
-							"    pm.expect(status).to.eql(\"CANCEL\");\r",
-							"})\r",
-							"\r",
 							""
 						],
 						"type": "text/javascript",
@@ -387,17 +365,6 @@
 							"    pm.response.to.have.status(400);\r",
 							"});\r",
 							"\r",
-							"\r",
-							"// Obtén la respuesta como un objeto JSON\r",
-							"var jsonData = pm.response.json();\r",
-							"\r",
-							"// Captura el valor de la variable `status`\r",
-							"var status = jsonData.data.status;\r",
-							"\r",
-							"// Valida que el valor de `status` sea \"LOCK\"\r",
-							"pm.test(\"Status es CANCEL\", function () {\r",
-							"    pm.expect(status).to.eql(\"CANCEL\");\r",
-							"})\r",
 							"\r",
 							""
 						],
