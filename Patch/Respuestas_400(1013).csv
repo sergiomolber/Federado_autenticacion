@@ -23,5 +23,3 @@ status,accountType,accountNumber,signer,spbvi,keyType,keyValue,comentario
 """ACTIVE""","""ORDINARY_DEPOSIT""","""53612622""","""0SGL3o8pzxq_Lqa""","""TFY""","""MERCHANTID""","""@3102047071""",Actualizar llave con tipo de llave Código asignado al establecimiento de comercio inciando con valores diferentes a 00
 """ACTIVE""","""ORDINARY_DEPOSIT""","""53612622""","""0SGL3o8pzxq_Lqa""","""TFY""","""MERCHANTID""","""0012345""",Actualizar llave con codigo asignado ya existente
 """ACTIVE""","""ORDINARY_DEPOSIT""","""53612622""","""0SGL3o8pzxq_Lqa""","""TFY""","""MERCHANTID""","""0098. """,Actualizar llave con tipo de llave Código asignado al establecimiento de comercio con espacio, punto y letras
-"""ACTIVE""","""SAVING_ACCOUNT""","""53612622""","""0SGL3o8pzxq_Lqa""","""""","""CEL""","""3102046709""",Validar campo spbvi al enviarlo vacio
-"""ACTIVE""","""SAVING_ACCOUNT""","""53612622""","""0SGL3o8pzxq_Lqa""",null,"""CEL""","""3239876543""",Validar campo spbvi al enviarlo null

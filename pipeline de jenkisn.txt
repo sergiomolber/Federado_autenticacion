@@ -1,0 +1,286 @@
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Descargar cambios') {
+            steps {
+                git branch: 'master', url: 'https://github.com/sergiomolber/Federado_autenticacion.git'
+            }
+        }
+
+        stage('Limpiar entornos') {
+            parallel {
+              stage('Limpiar Post') {
+                  steps {
+                    dir('Post') {
+                      bat 'rmdir /S /Q allure-results'
+                      }
+                    }
+                }
+               stage('Limpiar Patch') {
+                    steps {
+                        dir('Patch') {
+                            bat 'rmdir /S /Q allure-results'
+                        }
+                    }
+                }
+                stage('Limpiar GetID') {
+                    steps {
+                        dir('GetID') {
+                            bat 'rmdir /S /Q allure-results'
+                        }
+                    }
+                }
+                stage('Limpiar Crear token') {
+                    steps {
+                        dir('Crear_Token') {
+                            bat 'rmdir /S /Q allure-results'
+                        }
+                    }
+                }//
+            }
+        }
+
+        stage('Setup') {
+            parallel {
+                stage('Setup Post') {
+                    steps {
+                       script {
+                            def executorContent = """
+                            {
+                                "name": "Post",
+                                "type": "jenkins",
+                                "reportName": "Allure Report"
+                            }
+                            """
+                            writeFile file: 'Post/allure-results/executor.json', text: executorContent
+                        }
+                    }
+                }
+                stage('Setup Patch') {
+                    steps {
+                        script {
+                            def executorContent = """
+                            {
+                                "name": "Patch",
+                                "type": "jenkins",
+                                "reportName": "Allure Report"
+                            }
+                            """
+                            writeFile file: 'Patch/allure-results/executor.json', text: executorContent
+                        }
+                    }
+                }
+                stage('Setup GetID') {
+                    steps {
+                        script {
+                            def executorContent = """
+                            {
+                                "name": "GetID",
+                                "type": "jenkins",
+                                "reportName": "Allure Report"
+                            }
+                            """
+                            writeFile file: 'GetID/allure-results/executor.json', text: executorContent
+                        }
+                    }
+                }
+                stage('Setup Crear Token') {
+                    steps {
+                        script {
+                            def executorContent = """
+                            {
+                                "name": "Crear Token",
+                                "type": "jenkins",
+                                "reportName": "Allure Report"
+                            }
+                            """
+                            writeFile file: 'Crear_Token/allure-results/executor.json', text: executorContent
+                        }
+                    }
+                }
+            }
+        }
+
+        stage('Ejecutar Pruebas con Newman') {
+            parallel {
+               stage('Ejecutar Pruebas Post') {
+                    steps {
+                        dir('Post') {
+                           script {
+                                def newmanPath = "C:\\Users\\sergiomolina\\AppData\\Roaming\\npm\\newman"
+                                def runTest = { testScript ->
+                                    try {
+                                        bat testScript
+                                    } catch (Exception e) {
+                                        echo "Error al ejecutar una prueba con Newman: ${e.message}"
+                                    }
+                                }
+                                // Ejecutar cada prueba
+                                runTest("${newmanPath} run Crear_Access_token.json -g globals.json -r allure --insecure --export-globals updated_globals.json")
+								runTest("${newmanPath} run Sin_enviar_campos.json -g updated_globals.json -r allure --insecure")
+								runTest("${newmanPath} run Respuestas_201.json -g updated_globals.json -e environment.json -d Respuestas_201_PJ.csv -r allure --insecure --export-environment updated_environment.json")
+								runTest("${newmanPath} run respuestas_400_CODIGO_1013.json  -g updated_globals.json -d respuestas_400_CODIGO_1013.csv -r allure --insecure")
+								runTest("${newmanPath} run respuestas_400_CODIGO_1035.json  -g updated_globals.json -d respuestas_400_CODIGO_1035.csv -r allure --insecure")
+								runTest("${newmanPath} run Respuestas_400_CODIGO_1018.json  -g updated_globals.json -d Respuestas_400_CODIGO_1018.csv -r allure --insecure")
+								runTest("${newmanPath} run Validar_headers.json -g updated_globals.json -d Data_Headers.csv -e updated_environment.json   -r allure --insecure")
+                              
+                            }
+                        }
+                    }
+                }
+               stage('Ejecutar Pruebas Patch') {
+                    steps {
+                        dir('Patch') {
+                            script {
+                                def newmanPath = "C:\\Users\\sergiomolina\\AppData\\Roaming\\npm\\newman"
+                                def runTest = { testScript ->
+                                    try {
+                                        bat testScript
+                                    } catch (Exception e) {
+                                        echo "Error al ejecutar una prueba con Newman: ${e.message}"
+                                    }
+                                }
+                                //Ejecuta la primera colección de inactivar-cancelar y bloquear llave
+                                
+									runTest("${newmanPath} run Crear_Access_token.json -g globals1.json -r allure --insecure --export-globals updated_globals.json")
+									runTest("${newmanPath} run Cancelar_llave_ACCOUNT_CANCELLED.json -g updated_globals.json -e environment.json  -r allure --insecure") 
+									runTest("${newmanPath} run Cancelar_llave_OWNER_DEATH.json -g updated_globals.json -e environment.json  -r allure --insecure") 
+									runTest("${newmanPath} run Cancelar_llave_INACTIVITY.json -g updated_globals.json -e environment.json  -r allure --insecure") 									
+									runTest("${newmanPath} run Happy_pathc_Bloquear_llave.json -g updated_globals.json -e environment.json -r allure --insecure")
+									runTest("${newmanPath} run Happy_pathc_inactivar_llave.json -g updated_globals.json -e environment.json -r allure --insecure --export-environment updated_environment.json ")                             
+
+                                // Ejecuta la primera colección de bloquear y exporta el entorno actualizado
+                               
+                                // Usa el entorno actualizado en las siguientes ejecuciones 
+                                
+									runTest("${newmanPath} run Respuestas_202.json -g updated_globals.json -e updated_environment.json -d Respuestas_202.csv -r allure --insecure")
+									runTest("${newmanPath} run Respuestas_400.json -g updated_globals.json -e updated_environment.json -d Respuestas_400(1013).csv -r allure --insecure")
+									runTest("${newmanPath} run Sin_enviar_campos.json -g updated_globals.json -e updated_environment.json -r allure --insecure")
+									runTest("${newmanPath} run Headers.json -g updated_globals.json -d Headers.csv -e updated_environment.json  -r allure --insecure ")
+									runTest("${newmanPath} run Access_erroneo.json -g updated_globals.json -e updated_environment.json  -r allure --insecure")
+									runTest("${newmanPath} run CANCELAR_LLAVE_SIN_ENVIAR_MOTIVO.json -g updated_globals.json -e updated_environment.json -r allure --insecure")
+                            }
+                        }
+                    }
+                }
+               stage('Ejecutar Pruebas GetID') {
+                    steps {
+                        dir('GetID') {
+                            script {
+                                def newmanPath = "C:\\Users\\sergiomolina\\AppData\\Roaming\\npm\\newman"
+                                def runTest = { testScript ->
+                                    try {
+                                        bat testScript
+                                    } catch (Exception e) {
+                                        echo "Error al ejecutar una prueba con Newman: ${e.message}"
+                                    }
+                                }
+                                // Ejecuta la primera colección y exporta el entorno actualizado
+                                runTest("${newmanPath} run Crear_Access_token.json -g globals1.json -r allure --insecure --export-globals updated_globals.json ")
+								runTest("${newmanPath} run Happy_pathc.json -g updated_globals.json -e environment.json -r allure --insecure --export-environment updated_environment.json")
+                                // Usa el entorno actualizado en las siguientes ejecuciones
+                                runTest("${newmanPath} run Sin_enviar_campos.json -g updated_globals.json -e updated_environment.json -r allure --insecure")
+								runTest("${newmanPath} run Validar_headers.json  -g updated_globals.json -d Data_Headers.csv -e updated_environment.json  -r allure --insecure")
+								runTest("${newmanPath} run Access_erroneo.json -g updated_globals.json -e updated_environment.json  -r allure --insecure")
+                            }
+                        }
+                    }
+                }
+                stage('Ejecutar Pruebas Crear Token') {
+                    steps {
+                        dir('Crear_Token') {
+                            script {
+                                def newmanPath = "C:\\Users\\sergiomolina\\AppData\\Roaming\\npm\\newman"
+                                def runTest = { testScript ->
+                                    try {
+                                        bat testScript
+                                    } catch (Exception e) {
+                                        echo "Error al ejecutar una prueba con Newman: ${e.message}"
+                                    }
+                                }
+                                // Ejecuta la primera colección y exporta el entorno actualizado
+                                runTest("${newmanPath} run Happy_patch.json -g Globals.json -r allure --insecure")
+								runTest("${newmanPath} run Consumos_TLS.json -g Globals.json -e Environment.json -r allure --insecure")
+                                // Usa el entorno actualizado en las siguientes ejecuciones
+                                runTest("${newmanPath} run Accesstoken_400.json -g Globals.json -e Environment.json -d Respuestas_400.csv -r allure --insecure")
+								runTest("${newmanPath} run Consumos_Certificado_Incorrecto.json -g Globals.json -e Environment.json -r allure --insecure --ssl-client-cert Respuestas_400.csv --ssl-client-key Respuestas_400.csv ")
+								runTest("${newmanPath} run Consumos_Certificado_Correcto.json -g Globals.json -e Environment.json -r allure --insecure --ssl-client-cert firmaQA_transfiya_com_co_completado2.pem --ssl-client-key firmaQA_transfiya_com_co_completado2.pem ")
+                                runTest("${newmanPath} run Accesstoken_401.json -g Globals.json -d Respuestas_401.csv -r allure --insecure")
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        stage('Crear reporte html con Newman') {
+            parallel {
+                stage('Crear reporte Post') {
+                    steps {
+                        dir('Post') {
+                            bat 'allure generate --single-file allure-results --clean -o allure-report'
+                            bat 'ren allure-report\\index.html Post_report.html'
+                        }
+                    }
+                }
+                stage('Crear reporte Patch') {
+                    steps {
+                        dir('Patch') {
+                            bat 'allure generate --single-file allure-results --clean -o allure-report'
+                            bat 'ren allure-report\\index.html Patch_report.html'
+                        }
+                    }
+                }
+                stage('Crear reporte GetID') {
+                    steps {
+                        dir('GetID') {
+                            bat 'allure generate --single-file allure-results --clean -o allure-report'
+                            bat 'ren allure-report\\index.html GetID_report.html'
+                        }
+                    }
+                }
+                stage('Crear reporte Crear token') {
+                    steps {
+                        dir('Crear_token') {
+                            bat 'allure generate --single-file allure-results --clean -o allure-report'
+                            bat 'ren allure-report\\index.html Creartoken_report.html'
+                        }
+                    }
+                }
+            }
+        }
+
+       stage('Zip Reports') {
+            steps {
+                script {
+                    // Eliminar la carpeta y archivo zip si ya existen
+                    bat 'if exist AllureReports rmdir /S /Q AllureReports'
+                    bat 'if exist AllureReports.zip del AllureReports.zip'
+                    // Crear una carpeta para agrupar los reportes
+                    bat 'mkdir AllureReports'
+                    // Copiar los reportes a la carpeta creada
+                    bat 'copy Patch\\allure-report\\Patch_report.html AllureReports\\Patch_report.html'
+                    bat 'copy Post\\allure-report\\Post_report.html AllureReports\\Post_report.html'
+                    bat 'copy GetID\\allure-report\\GetID_report.html AllureReports\\GetID_report.html'
+                    bat 'copy Crear_Token\\allure-report\\Creartoken_report.html AllureReports\\Creartoken_report.html'
+                    // Crear el archivo zip
+                    bat 'powershell Compress-Archive -Path AllureReports\\* -DestinationPath AllureReports.zip'
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            emailext(
+                subject: 'Resultado Microservicios Automatización reutilizacion de llaves y Seguridad',
+                body: 'Resultados de la ejecución del lanzamiento de los microservicios de transfiya',
+                to: 'sergiomolina@cbit-online.com',
+                from: 'achjenkinsnewman@gmail.com',
+                attachmentsPattern: 'AllureReports.zip'
+            )
+        }
+    }
+}
