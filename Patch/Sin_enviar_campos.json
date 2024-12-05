@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "c0e829f4-20a4-4d11-a170-981e75f233d8",
+		"_postman_id": "0c81f478-8cbc-49ef-a6cb-f2640ca64422",
 		"name": "Patch codigo Sin enviar campos",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "29460625",
-		"_collection_link": "https://red-satellite-829132.postman.co/workspace/ULTIMO-FEDERADO-REGULACION~0d3103fa-a7a9-4c97-9188-b83d2120c143/collection/29460625-c0e829f4-20a4-4d11-a170-981e75f233d8?action=share&source=collection_link&creator=29460625"
+		"_collection_link": "https://red-satellite-829132.postman.co/workspace/prueba-federado~4f27235c-04df-4b6c-81ae-7ca48b4eeddb/collection/29460625-0c81f478-8cbc-49ef-a6cb-f2640ca64422?action=share&source=collection_link&creator=29460625"
 	},
 	"item": [
 		{
@@ -733,116 +733,6 @@
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n  \"key\":{\r\n  \"status\": \"INACTIVE\",\r\n   \"spbvi\": \"TFY\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": {{accountType}},\r\n            \"accountNumber\":{{accountNumber}},\r\n            \"signer\": {{signer}}\r\n  }\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys/{{id}}",
-					"host": [
-						"{{base-url}}"
-					],
-					"path": [
-						"fd",
-						"entities",
-						"{{entidad}}",
-						"keys",
-						"{{id}}"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Actualizar Llave al no enviar signer",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 202\", function () {\r",
-							"    pm.response.to.have.status(202);\r",
-							"});\r",
-							"\r",
-							""
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				},
-				{
-					"listen": "prerequest",
-					"script": {
-						"exec": [
-							"// Genera un valor aleatorio entre 0 y 1\r",
-							"let randomValue = Math.random();\r",
-							"\r",
-							"// Determina el estado basado en el valor aleatorio\r",
-							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
-							"\r",
-							"// Guarda el estado en una variable de entorno o de colección\r",
-							"pm.environment.set(\"randomStatus\", status);\r",
-							"\r",
-							"// Definimos los valores posibles para accountType\r",
-							"const accountTypes = [\"SAVING_ACCOUNT\", \"CURRENT_ACCOUNT\", \"LOW_DEPOSIT\", \"ORDINARY_DEPOSIT\", \"INCLUSIVE_LOW_AMOUNT\"];\r",
-							"\r",
-							"// Seleccionamos un valor aleatorio del arreglo\r",
-							"const randomIndex = Math.floor(Math.random() * accountTypes.length);\r",
-							"const randomAccountType = accountTypes[randomIndex];\r",
-							"\r",
-							"// Asignamos el valor aleatorio a la variable 'accountType'\r",
-							"pm.variables.set(\"accountType\", randomAccountType);\r",
-							""
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{access_token}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "PATCH",
-				"header": [
-					{
-						"key": "message-uuid",
-						"value": "{{message-uuid}}",
-						"type": "text"
-					},
-					{
-						"key": "request-app-id",
-						"value": "{{request-app-id}}",
-						"type": "text"
-					},
-					{
-						"key": "customer-request-dt",
-						"value": "{{customer-request-dt}}",
-						"type": "text"
-					},
-					{
-						"key": "entity-request-dt",
-						"value": "{{entity-request-dt}}",
-						"type": "text"
-					},
-					{
-						"key": "transaction-reference",
-						"value": "{{transaction-reference}}",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"key\":{\r\n  \"status\": \"{{randomStatus}}\",\r\n   \"spbvi\": \"TFY\"\r\n  },\r\n  \"account\": {\r\n    \"accountType\": \"{{accountType}}\",\r\n            \"accountNumber\": \"{{accountNumber}}\"\r\n            \r\n  }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
